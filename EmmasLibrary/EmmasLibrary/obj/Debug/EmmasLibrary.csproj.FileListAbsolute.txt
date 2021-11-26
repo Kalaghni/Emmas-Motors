@@ -1,0 +1,9 @@
+D:\Niagara College\Year 2\RAD Client Server Project\Group Project\EmmasLibrary\EmmasLibrary\bin\Debug\Emmas.mdf
+D:\Niagara College\Year 2\RAD Client Server Project\Group Project\EmmasLibrary\EmmasLibrary\bin\Debug\Emmas_log.ldf
+D:\Niagara College\Year 2\RAD Client Server Project\Group Project\EmmasLibrary\EmmasLibrary\bin\Debug\EmmasLibrary.dll.config
+D:\Niagara College\Year 2\RAD Client Server Project\Group Project\EmmasLibrary\EmmasLibrary\bin\Debug\EmmasLibrary.dll
+D:\Niagara College\Year 2\RAD Client Server Project\Group Project\EmmasLibrary\EmmasLibrary\bin\Debug\EmmasLibrary.pdb
+D:\Niagara College\Year 2\RAD Client Server Project\Group Project\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.csprojAssemblyReference.cache
+D:\Niagara College\Year 2\RAD Client Server Project\Group Project\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.csproj.CoreCompileInputs.cache
+D:\Niagara College\Year 2\RAD Client Server Project\Group Project\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.dll
+D:\Niagara College\Year 2\RAD Client Server Project\Group Project\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.pdb
