@@ -7,3 +7,12 @@ D:\Niagara College\Year 2\RAD Client Server Project\Group Project\EmmasLibrary\E
 D:\Niagara College\Year 2\RAD Client Server Project\Group Project\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.csproj.CoreCompileInputs.cache
 D:\Niagara College\Year 2\RAD Client Server Project\Group Project\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.dll
 D:\Niagara College\Year 2\RAD Client Server Project\Group Project\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.pdb
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\Emmas.mdf
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\Emmas_log.ldf
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\EmmasLibrary.dll.config
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\EmmasLibrary.dll
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\EmmasLibrary.pdb
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.csproj.AssemblyReference.cache
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.csproj.CoreCompileInputs.cache
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.dll
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.pdb
