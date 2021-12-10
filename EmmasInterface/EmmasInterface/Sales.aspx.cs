@@ -11,7 +11,12 @@ namespace EmmasInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //if (User.Identity.IsAuthenticated)
+            //{
+            //    //btnSubmit.Enabled = true;
+            //}
+            //else
+            //    Response.Redirect("~/Login.aspx");
         }
     }
 }
