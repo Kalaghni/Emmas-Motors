@@ -12,7 +12,10 @@ namespace EmmasInterface.Login_Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             if (User.Identity.IsAuthenticated)
+            {
                 btnSale.Enabled = true;
+                pntest.Visible = true;
+            }
             else
                 Response.Redirect("~/Login.aspx");
         }
@@ -34,6 +37,11 @@ namespace EmmasInterface.Login_Pages
         protected void btnInvoice_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Invoice.aspx");
+        }
+
+        protected void btnEmployee_Click(object sender, EventArgs e)
+        {
+            //Response.Redirect("~/Invoice.aspx");
         }
     }
 }

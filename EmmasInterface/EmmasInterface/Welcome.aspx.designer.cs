@@ -24,6 +24,15 @@ namespace EmmasInterface.Login_Pages
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// pntest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pntest;
+
+        /// <summary>
         /// btnSale control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace EmmasInterface.Login_Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnInvoice;
+
+        /// <summary>
+        /// btnEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEmployee;
 
         /// <summary>
         /// btnLogout control.

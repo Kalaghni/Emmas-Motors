@@ -11,10 +11,21 @@
     <form id="form1" runat="server">
         <div>
             <br />
-            <asp:Button ID="btnSale" runat="server" OnClick="btnSale_Click" Text="Sales" />
             <br />
+            <asp:Panel ID="pntest" runat="server" Height="139px">
+                <div style="height: 28px">
+                    <asp:Button ID="btnSale" runat="server" OnClick="btnSale_Click" Text="Sales" />
+                </div>
+                <div style="height: 28px">
+                    <asp:Button ID="btnInvoice" runat="server" OnClick="btnInvoice_Click" Text="Invoice" />
+                </div>
+                <div style="height: 28px">
+                    <asp:Button ID="btnEmployee" runat="server" OnClick="btnEmployee_Click" Text="Employee" />
+                </div>
+                <br />
+                <br />
+            </asp:Panel>
             <br />
-            <asp:Button ID="btnInvoice" runat="server" OnClick="btnInvoice_Click" Text="Invoice" />
             <br />
             <br />
             <br />
