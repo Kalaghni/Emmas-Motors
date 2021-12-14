@@ -11,7 +11,12 @@
     <form id="form1" runat="server">
         <div>
             <br />
-            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
+            <asp:Button ID="btnSale" runat="server" OnClick="btnSale_Click" Text="Sales" />
+            <br />
+            <br />
+            <asp:Button ID="btnInvoice" runat="server" OnClick="btnInvoice_Click" Text="Invoice" />
+            <br />
+            <br />
             <br />
             <br />
             <br />

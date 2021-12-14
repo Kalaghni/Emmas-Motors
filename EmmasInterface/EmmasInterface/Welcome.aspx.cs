@@ -12,21 +12,28 @@ namespace EmmasInterface.Login_Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             if (User.Identity.IsAuthenticated)
-                btnSubmit.Enabled = true;
+                btnSale.Enabled = true;
             else
                 Response.Redirect("~/Login.aspx");
         }
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Welcome.aspx");
-        }
+        
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut();
             Response.Redirect("~/Login.aspx");
+        }
+
+        protected void btnSale_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Sales.aspx");
+        }
+
+        protected void btnInvoice_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Invoice.aspx");
         }
     }
 }
