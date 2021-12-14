@@ -46,6 +46,30 @@
                     </td>
                 </tr> 
             </table>
+            <br />
+            <br />
+            <br />
+            <asp:Panel ID="pntest" runat="server" Height="123px">
+                <asp:Label ID="Label1" runat="server" Text="Naviagte to another page:"></asp:Label>
+                <br />
+                <br />
+                <div style="height: 28px">
+                    <asp:Button ID="btnSale" runat="server" OnClick="btnSale_Click" Text="Sales" />
+                </div>
+                <div style="height: 28px">
+                    <asp:Button ID="btnInvoice" runat="server" OnClick="btnInvoice_Click" Text="Invoice" />
+                </div>
+                <div style="height: 28px">
+                    <asp:Button ID="btnEmployee" runat="server" OnClick="btnEmployee_Click" Text="Employee" />
+                </div>
+                <br />
+                <br />
+            </asp:Panel>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <asp:ObjectDataSource ID="EmployeeDataSource" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.employeeTableAdapter" UpdateMethod="Update">
                 <DeleteParameters>
                     <asp:Parameter Name="Original_id" Type="Int32" />

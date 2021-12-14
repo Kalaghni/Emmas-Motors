@@ -50,11 +50,37 @@
             <br />
             Total : <asp:Label ID="lblTotal" runat="server" Text="$0.00"></asp:Label>
             <br />
+            <br />
+            <br />
+            <br />
+            <asp:Panel ID="pntest" runat="server" Height="123px">
+                <asp:Label ID="Label1" runat="server" Text="Naviagte to another page:"></asp:Label>
+                <br />
+                <br />
+                <div style="height: 28px">
+                    <asp:Button ID="btnSale" runat="server" OnClick="btnSale_Click" Text="Sales" />
+                </div>
+                <div style="height: 28px">
+                    <asp:Button ID="btnInvoice" runat="server" OnClick="btnInvoice_Click" Text="Invoice" />
+                </div>
+                <div style="height: 28px">
+                    <asp:Button ID="btnEmployee" runat="server" OnClick="btnEmployee_Click" Text="Employee" />
+                </div>
+                <br />
+                <br />
+            </asp:Panel>
+            <br />
+            <br />
+            <br />
+            <br />
             
         </div>
         
         
         <asp:ObjectDataSource ID="odsProducts" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.productTableAdapter"></asp:ObjectDataSource>
+        
+        
+        <br />
         
         
     </form>

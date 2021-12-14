@@ -17,12 +17,13 @@ namespace EmmasInterface
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (User.Identity.IsAuthenticated)
-            //{
-            //    //btnSubmit.Enabled = true;
-            //}
-            //else
-            //    Response.Redirect("~/Login.aspx");
+            if (User.Identity.IsAuthenticated)
+            {
+               
+                pntest.Visible = true;
+            }
+            else
+                Response.Redirect("~/Login.aspx");
         }
 
 
@@ -84,5 +85,19 @@ namespace EmmasInterface
             
         }
 
+        protected void btnSale_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Sales.aspx");
+        }
+
+        protected void btnInvoice_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Invoice.aspx");
+        }
+
+        protected void btnEmployee_Click(object sender, EventArgs e)
+        {
+            //Response.Redirect("~/Invoice.aspx");
+        }
     }
 }

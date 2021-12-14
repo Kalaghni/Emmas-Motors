@@ -10,9 +10,13 @@
     
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="Label1" runat="server" Text="Emma's Small Engines"></asp:Label>
             <br />
             <br />
-            <asp:Panel ID="pntest" runat="server" Height="139px">
+            <asp:Label ID="Label2" runat="server" Text="Select a page to navigate to below:"></asp:Label>
+            <br />
+            <br />
+            <asp:Panel ID="pntest" runat="server" Height="81px">
                 <div style="height: 28px">
                     <asp:Button ID="btnSale" runat="server" OnClick="btnSale_Click" Text="Sales" />
                 </div>

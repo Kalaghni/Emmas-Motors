@@ -13,7 +13,7 @@ namespace EmmasInterface.Login_Pages
         {
             if (User.Identity.IsAuthenticated)
             {
-                btnSale.Enabled = true;
+                
                 pntest.Visible = true;
             }
             else
