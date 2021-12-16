@@ -15,28 +15,15 @@
             <asp:GridView GridLines="None" CellPadding="10" ID="gvCustomer" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="odsCustomer" CssClass="cssgridview" OnSelectedIndexChanged="gvCustomer_SelectedIndexChanged">
                 <HeaderStyle BackColor="#03dffc" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
                 <Columns>
-                    <asp:TemplateField ShowHeader="False">
-                        <EditItemTemplate>
-                            <asp:LinkButton ID="lbtnUpdate" runat="server" CausesValidation="True" CommandName="Update" Text="Update"></asp:LinkButton>
-                            &nbsp;<asp:LinkButton ID="lbtnCancel" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
-                        </EditItemTemplate>
-                        <HeaderTemplate>
-                            <asp:LinkButton ID="lbtnCreate" ForeColor="#ffffff" runat="server" OnClick="lbtnCreate_Click">New Customer</asp:LinkButton>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lbtnEdit" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton>
-                            &nbsp;<asp:LinkButton ID="lbtnSelect" runat="server" CausesValidation="False" CommandName="Select" Text="Select"></asp:LinkButton>
-                            &nbsp;<asp:LinkButton ID="lbtnDelete" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" OnClientClick='return confirm("Are you sure you want to delete this item?");'></asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                    <asp:BoundField DataField="custFirst" HeaderText="First Name" SortExpression="custFirst" />
-                    <asp:BoundField DataField="custLast" HeaderText="Last Name" SortExpression="custLast" />
-                    <asp:BoundField DataField="custPhone" HeaderText="Phone" SortExpression="custPhone" />
-                    <asp:BoundField DataField="custAddress" HeaderText="Address" SortExpression="custAddress" />
-                    <asp:BoundField DataField="custCity" HeaderText="City" SortExpression="custCity" />
-                    <asp:BoundField DataField="custPostal" HeaderText="Postal" SortExpression="custPostal" />
-                    <asp:BoundField DataField="custEmail" HeaderText="Email" SortExpression="custEmail" />
+                    <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                    <asp:BoundField DataField="custFirst" HeaderText="custFirst" SortExpression="custFirst" />
+                    <asp:BoundField DataField="custLast" HeaderText="custLast" SortExpression="custLast" />
+                    <asp:BoundField DataField="custPhone" HeaderText="custPhone" SortExpression="custPhone" />
+                    <asp:BoundField DataField="custAddress" HeaderText="custAddress" SortExpression="custAddress" />
+                    <asp:BoundField DataField="custCity" HeaderText="custCity" SortExpression="custCity" />
+                    <asp:BoundField DataField="custPostal" HeaderText="custPostal" SortExpression="custPostal" />
+                    <asp:BoundField DataField="custEmail" HeaderText="custEmail" SortExpression="custEmail" />
+                    <asp:BoundField DataField="custFullName" HeaderText="custFullName" ReadOnly="True" SortExpression="custFullName" />
                 </Columns>
                 <FooterStyle HorizontalAlign="Left" />
             </asp:GridView>
@@ -52,15 +39,15 @@
                 DefaultMode="Insert" 
                 OnItemCommand="dvCustomer_ItemCommand">
                 <Fields>
-                    <asp:BoundField DataField="custFirst" HeaderText="First Name" SortExpression="custFirst" />
-                    <asp:BoundField DataField="id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                    <asp:BoundField DataField="custLast" HeaderText="Last Name" SortExpression="custLast" />
-                    <asp:BoundField DataField="custPhone" HeaderText="Phone" SortExpression="custPhone" />
-                    <asp:BoundField DataField="custAddress" HeaderText="Address" SortExpression="custAddress" />
-                    <asp:BoundField DataField="custCity" HeaderText="City" SortExpression="custCity" />
-                    <asp:BoundField DataField="custPostal" HeaderText="Postal" SortExpression="custPostal" />
-                    <asp:BoundField DataField="custEmail" HeaderText="Email" SortExpression="custEmail" />
-                    <asp:CommandField ShowInsertButton="True" />
+                    <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" InsertVisible="False" ReadOnly="True" />
+                    <asp:BoundField DataField="custFirst" HeaderText="custFirst" SortExpression="custFirst" />
+                    <asp:BoundField DataField="custLast" HeaderText="custLast" SortExpression="custLast" />
+                    <asp:BoundField DataField="custPhone" HeaderText="custPhone" SortExpression="custPhone" />
+                    <asp:BoundField DataField="custAddress" HeaderText="custAddress" SortExpression="custAddress" />
+                    <asp:BoundField DataField="custCity" HeaderText="custCity" SortExpression="custCity" />
+                    <asp:BoundField DataField="custPostal" HeaderText="custPostal" SortExpression="custPostal" />
+                    <asp:BoundField DataField="custEmail" HeaderText="custEmail" SortExpression="custEmail" />
+                    <asp:BoundField DataField="custFullName" HeaderText="custFullName" ReadOnly="True" SortExpression="custFullName" />
                 </Fields>
             </asp:DetailsView>
             <asp:Panel ID="pntest" runat="server" Height="241px">
@@ -86,7 +73,17 @@
                 <br />
             </asp:Panel>
             <br />
-            <asp:ObjectDataSource ID="odsCustomer" runat="server" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.customerTableAdapter">
+            <asp:ObjectDataSource ID="odsCustomer" runat="server" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.CustomerDataSetTableAdapters.CustomerTableAdapter" DeleteMethod="Delete" UpdateMethod="Update">
+                <DeleteParameters>
+                    <asp:Parameter Name="Original_id" Type="Int32" />
+                    <asp:Parameter Name="Original_custFirst" Type="String" />
+                    <asp:Parameter Name="Original_custLast" Type="String" />
+                    <asp:Parameter Name="Original_custPhone" Type="String" />
+                    <asp:Parameter Name="Original_custAddress" Type="String" />
+                    <asp:Parameter Name="Original_custCity" Type="String" />
+                    <asp:Parameter Name="Original_custPostal" Type="String" />
+                    <asp:Parameter Name="Original_custEmail" Type="String" />
+                </DeleteParameters>
                 <InsertParameters>
                     <asp:Parameter Name="custFirst" Type="String" />
                     <asp:Parameter Name="custLast" Type="String" />
@@ -96,6 +93,23 @@
                     <asp:Parameter Name="custPostal" Type="String" />
                     <asp:Parameter Name="custEmail" Type="String" />
                 </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="custFirst" Type="String" />
+                    <asp:Parameter Name="custLast" Type="String" />
+                    <asp:Parameter Name="custPhone" Type="String" />
+                    <asp:Parameter Name="custAddress" Type="String" />
+                    <asp:Parameter Name="custCity" Type="String" />
+                    <asp:Parameter Name="custPostal" Type="String" />
+                    <asp:Parameter Name="custEmail" Type="String" />
+                    <asp:Parameter Name="Original_id" Type="Int32" />
+                    <asp:Parameter Name="Original_custFirst" Type="String" />
+                    <asp:Parameter Name="Original_custLast" Type="String" />
+                    <asp:Parameter Name="Original_custPhone" Type="String" />
+                    <asp:Parameter Name="Original_custAddress" Type="String" />
+                    <asp:Parameter Name="Original_custCity" Type="String" />
+                    <asp:Parameter Name="Original_custPostal" Type="String" />
+                    <asp:Parameter Name="Original_custEmail" Type="String" />
+                </UpdateParameters>
             </asp:ObjectDataSource>
         </div>
     </form>
