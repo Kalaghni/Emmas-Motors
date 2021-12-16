@@ -13,7 +13,7 @@ namespace EmmasInterface
     {
         static EmmasDataSet dsEmma = new EmmasDataSet();
         static InvoiceLookupAdapter laInvoice = new InvoiceLookupAdapter();
-        static OrderTableAdapter taOrder = new OrderTableAdapter();
+        static OrderProductsTableAdapter taOrder = new OrderProductsTableAdapter();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,7 +26,7 @@ namespace EmmasInterface
                 Response.Redirect("~/Login.aspx");
         }
 
-
+        //Test
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
@@ -46,7 +46,7 @@ namespace EmmasInterface
                                             Convert.ToInt32(ddlEmployee.SelectedValue),
                                             Convert.ToInt32(orderNumber));
 
-                
+
                 if (invoice.Count > 0)
                 {
                     foreach (var i in invoice)
@@ -63,7 +63,7 @@ namespace EmmasInterface
                         {
                             lbEquipment.Items.Add($"Brand: " + $"{ord.prodBrand}");
                             lbEquipment.Items.Add($"Name: " + $"{ord.prodName}");
-                            lbEquipment.Items.Add($"Price: " + $"{string.Format("{0:C}",ord.orlPrice)}");
+                            lbEquipment.Items.Add($"Price: " + $"{string.Format("{0:C}", ord.orlPrice)}");
                             lbEquipment.Items.Add($"Quantity: " + $"{ord.orlQuantity}");
                             lbEquipment.Items.Add($"Notes: " + $"{ord.orlNote}");
                             lbEquipment.Items.Add("");
@@ -80,9 +80,9 @@ namespace EmmasInterface
             {
                 lbInvoice.Items.Add("An error occured getting invoice.");
             }
-             
 
-            
+
+
         }
 
         protected void btnSale_Click(object sender, EventArgs e)
