@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace EmmasInterface
 {
-    public partial class CustomerOrder : System.Web.UI.Page
+    public partial class CustomerOrders : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -11,7 +11,7 @@ namespace EmmasInterface
 {
 
 
-    public partial class CustomerOrder
+    public partial class CustomerOrders
     {
 
         /// <summary>
