@@ -42,7 +42,8 @@
             <asp:TextBox ID="txtProdQuant"  type="number" runat="server" Width="28px"></asp:TextBox>
             
             <br />
-            <asp:ListBox ID="ListBox1" runat="server" AutoPostBack="True"></asp:ListBox>
+            <asp:GridView ID="gvOrderProducts" runat="server" DataSourceID="odsProducts">
+            </asp:GridView>
             <br />
             Subtotal : <asp:Label ID="lblSubtotal" runat="server" Text="$0.00"></asp:Label>
             <br />
