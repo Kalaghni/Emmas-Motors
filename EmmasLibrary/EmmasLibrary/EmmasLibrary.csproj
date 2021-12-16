@@ -64,6 +64,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CustomerDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="EmmasDataSet.cs">
+      <DependentUpon>EmmasDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EmmasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

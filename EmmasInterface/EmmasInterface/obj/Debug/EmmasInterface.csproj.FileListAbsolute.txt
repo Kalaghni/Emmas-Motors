@@ -345,7 +345,6 @@ C:\Users\vogia\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\obj\D
 C:\Users\vogia\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.csproj.CopyComplete
 C:\Users\vogia\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.dll
 C:\Users\vogia\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.pdb
-D:\Niagara College\Year 2\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.csprojAssemblyReference.cache
 D:\Niagara College\Year 2\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.csproj.CoreCompileInputs.cache
 D:\Niagara College\Year 2\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.dll
 D:\Niagara College\Year 2\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.pdb

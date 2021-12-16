@@ -42,5 +42,10 @@ namespace EmmasInterface
         {
             Response.Redirect("~/Product.aspx");
         }
+
+        protected void SearchCust(object sender, EventArgs e)
+        {
+            lbCustNames.Items.Add(txtSearchCust.Text);
+        }
     }
 }

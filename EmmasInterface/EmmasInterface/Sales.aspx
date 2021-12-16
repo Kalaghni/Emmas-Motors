@@ -12,7 +12,7 @@
         <br />
         <br />
         <asp:TextBox ID="txtSearchCust" runat="server"></asp:TextBox>
-        <asp:Button ID="btnSearch" runat="server" Text="Search" />
+        <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="SearchCust" />
         <br />
         <br />
         <asp:ListBox ID="lbCustNames" runat="server" AutoPostBack="True" DataSourceID="odsCustomerLookup" DataTextField="custFullname" DataValueField="id" Height="111px"></asp:ListBox>
@@ -88,15 +88,8 @@
             <br />
             <br />
             <br />
+            <asp:ObjectDataSource ID="odsCustomerLookup" runat="server"></asp:ObjectDataSource>
             <br />
-            <asp:ObjectDataSource ID="odsCustomerLookup" runat="server" DeleteMethod="Delete" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.customerLookupTableAdapter">
-                <DeleteParameters>
-                    <asp:Parameter Name="Original_id" Type="Int32" />
-                </DeleteParameters>
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="txtSearchCust" Name="Param1" PropertyName="Text" Type="String" />
-                </SelectParameters>
-            </asp:ObjectDataSource>
             <br />
             
         </div>
