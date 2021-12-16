@@ -26,6 +26,9 @@
                 <div style="height: 28px">
                     <asp:Button ID="btnEmployee" runat="server" OnClick="btnEmployee_Click" Text="Employee" />
                 </div>
+                <div style="height: 28px">
+                    <asp:Button ID="btnCustomer" runat="server" OnClick="btnCustomer_Click" Text="Customer" />
+                </div>
                 <br />
                 <br />
             </asp:Panel>

@@ -43,5 +43,10 @@ namespace EmmasInterface.Login_Pages
         {
             //Response.Redirect("~/Invoice.aspx");
         }
+
+        protected void btnCustomer_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Customer.aspx");
+        }
     }
 }
