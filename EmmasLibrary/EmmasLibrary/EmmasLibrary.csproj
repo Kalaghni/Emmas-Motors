@@ -47,7 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -68,6 +68,31 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EmmasDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OnOrderDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnOrderDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OrderLineDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderLineDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDDLDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDDLDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProductLookupDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductLookupDataset.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -108,6 +133,61 @@
     </None>
     <None Include="EmmasDataSet.xss">
       <DependentUpon>EmmasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="InventoryDataSet.xsc">
+      <DependentUpon>InventoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="InventoryDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InventoryDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InventoryDataSet.xss">
+      <DependentUpon>InventoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="OnOrderDataset.xsc">
+      <DependentUpon>OnOrderDataset.xsd</DependentUpon>
+    </None>
+    <None Include="OnOrderDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OnOrderDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OnOrderDataset.xss">
+      <DependentUpon>OnOrderDataset.xsd</DependentUpon>
+    </None>
+    <None Include="OrderLineDataset.xsc">
+      <DependentUpon>OrderLineDataset.xsd</DependentUpon>
+    </None>
+    <None Include="OrderLineDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OrderLineDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OrderLineDataset.xss">
+      <DependentUpon>OrderLineDataset.xsd</DependentUpon>
+    </None>
+    <None Include="ProductDDLDataset.xsc">
+      <DependentUpon>ProductDDLDataset.xsd</DependentUpon>
+    </None>
+    <None Include="ProductDDLDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductDDLDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProductDDLDataset.xss">
+      <DependentUpon>ProductDDLDataset.xsd</DependentUpon>
+    </None>
+    <None Include="ProductLookupDataset.xsc">
+      <DependentUpon>ProductLookupDataset.xsd</DependentUpon>
+    </None>
+    <None Include="ProductLookupDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductLookupDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProductLookupDataset.xss">
+      <DependentUpon>ProductLookupDataset.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
