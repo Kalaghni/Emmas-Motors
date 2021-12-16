@@ -13,31 +13,8 @@
         <br />
         <asp:TextBox ID="txtSearchCust" runat="server"></asp:TextBox>
         <br />
-        <asp:FormView ID="FormView1" runat="server" DataKeyNames="id" DataSourceID="odsCustomerLookup" Height="114px">
-            <EditItemTemplate>
-                id:
-                <asp:Label ID="idLabel1" runat="server" Text='<%# Eval("id") %>' />
-                <br />
-                custFullname:
-                <asp:TextBox ID="custFullnameTextBox" runat="server" Text='<%# Bind("custFullname") %>' />
-                <br />
-                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-            </EditItemTemplate>
-            <InsertItemTemplate>
-                custFullname:
-                <asp:TextBox ID="custFullnameTextBox" runat="server" Text='<%# Bind("custFullname") %>' />
-                <br />
-                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-            </InsertItemTemplate>
-            <ItemTemplate>
-                Full name:
-                <asp:Label ID="custFullnameLabel" runat="server" Text='<%# Bind("custFullname") %>' />
-                <br />
-            </ItemTemplate>
-        </asp:FormView>
         <br />
+        <asp:ListBox ID="lbCustNames" runat="server" AutoPostBack="True" DataSourceID="odsCustomerLookup" DataTextField="custFullname" DataValueField="id"></asp:ListBox>
         <br />
         <br />
         <asp:Label ID="lbCustomerInfo" runat="server" Text="Customer Information"></asp:Label>    
