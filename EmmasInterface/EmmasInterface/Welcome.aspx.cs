@@ -41,12 +41,16 @@ namespace EmmasInterface.Login_Pages
 
         protected void btnEmployee_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("~/Invoice.aspx");
+            Response.Redirect("~/Employee.aspx");
         }
 
         protected void btnCustomer_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Customer.aspx");
+        }
+        protected void btnProdLookup_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Product.aspx");
         }
     }
 }

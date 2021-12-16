@@ -63,6 +63,28 @@
                     <asp:CommandField ShowInsertButton="True" />
                 </Fields>
             </asp:DetailsView>
+            <asp:Panel ID="pntest" runat="server" Height="241px">
+                <asp:Label ID="Label2" runat="server" Text="Naviagte to another page:"></asp:Label>
+                <br />
+                <br />
+                <div style="height: 28px">
+                    <asp:Button ID="btnSale" runat="server" OnClick="btnSale_Click" Text="Sales" Width="120px" />
+                </div>
+                <div style="height: 28px">
+                    <asp:Button ID="btnInvoice" runat="server" OnClick="btnInvoice_Click" Text="Invoice" Width="120px" />
+                </div>
+                <div style="height: 29px">
+                    <asp:Button ID="btnEmployee" runat="server" OnClick="btnEmployee_Click" Text="Employee" Width="120px" />
+                </div>
+                <div style="height: 28px">
+                    <asp:Button ID="btnCustomer" runat="server" OnClick="btnSale_Click" Text="Customer" Width="120px" />
+                </div>
+                <div style="height: 28px">
+                    <asp:Button ID="btnProdLookup" runat="server" OnClick="btnInvoice_Click" Text="Product Lookup" Width="120px" />
+                </div>
+                <br />
+                <br />
+            </asp:Panel>
             <br />
             <asp:ObjectDataSource ID="odsCustomer" runat="server" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.customerTableAdapter">
                 <InsertParameters>

@@ -13,7 +13,7 @@ namespace EmmasInterface
         {
             if (User.Identity.IsAuthenticated)
             {
-
+                pntest.Visible = true;
             }
             
             else
@@ -28,6 +28,30 @@ namespace EmmasInterface
         protected void btnExistingCust_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Sales.aspx");
+        }
+
+        protected void btnCustomer_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Customer.aspx");
+        }
+
+        protected void btnSale_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SalesOption.aspx");
+        }
+
+        protected void btnInvoice_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Invoice.aspx");
+        }
+
+        protected void btnEmployee_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Employee.aspx");
+        }
+        protected void btnProdLookup_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Product.aspx");
         }
     }
 }

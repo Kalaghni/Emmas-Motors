@@ -22,7 +22,7 @@ namespace EmmasInterface
 
         protected void btnSale_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Sales.aspx");
+            Response.Redirect("~/SalesOption.aspx");
         }
 
         protected void btnInvoice_Click(object sender, EventArgs e)
@@ -32,7 +32,15 @@ namespace EmmasInterface
 
         protected void btnEmployee_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("~/Invoice.aspx");
+            Response.Redirect("~/Employee.aspx");
+        }
+        protected void btnCustomer_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Customer.aspx");
+        }
+        protected void btnProdLookup_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Product.aspx");
         }
     }
 }

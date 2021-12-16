@@ -12,9 +12,10 @@
         <br />
         <br />
         <asp:TextBox ID="txtSearchCust" runat="server"></asp:TextBox>
+        <asp:Button ID="btnSearch" runat="server" Text="Search" />
         <br />
         <br />
-        <asp:ListBox ID="lbCustNames" runat="server" AutoPostBack="True" DataSourceID="odsCustomerLookup" DataTextField="custFullname" DataValueField="id"></asp:ListBox>
+        <asp:ListBox ID="lbCustNames" runat="server" AutoPostBack="True" DataSourceID="odsCustomerLookup" DataTextField="custFullname" DataValueField="id" Height="111px"></asp:ListBox>
         <br />
         <br />
         <asp:Label ID="lbCustomerInfo" runat="server" Text="Customer Information"></asp:Label>    
@@ -62,23 +63,29 @@
             <br />
             <br />
             <br />
-            <br />
-            <asp:Panel ID="pntest" runat="server" Height="123px">
-                <asp:Label ID="Label1" runat="server" Text="Naviagte to another page:"></asp:Label>
+            <asp:Panel ID="pntest" runat="server" Height="241px">
+                <asp:Label ID="Label3" runat="server" Text="Naviagte to another page:"></asp:Label>
                 <br />
                 <br />
                 <div style="height: 28px">
-                    <asp:Button ID="btnSale" runat="server" OnClick="btnSale_Click" Text="Sales" />
+                    <asp:Button ID="btnSale" runat="server" OnClick="btnSale_Click" Text="Sales" Width="120px" />
                 </div>
                 <div style="height: 28px">
-                    <asp:Button ID="btnInvoice" runat="server" OnClick="btnInvoice_Click" Text="Invoice" />
+                    <asp:Button ID="btnInvoice" runat="server" OnClick="btnInvoice_Click" Text="Invoice" Width="120px" />
+                </div>
+                <div style="height: 29px">
+                    <asp:Button ID="btnEmployee" runat="server" OnClick="btnEmployee_Click" Text="Employee" Width="120px" />
                 </div>
                 <div style="height: 28px">
-                    <asp:Button ID="btnEmployee" runat="server" OnClick="btnEmployee_Click" Text="Employee" />
+                    <asp:Button ID="btnCustomer" runat="server" OnClick="btnSale_Click" Text="Customer" Width="120px" />
+                </div>
+                <div style="height: 28px">
+                    <asp:Button ID="btnProdLookup" runat="server" OnClick="btnInvoice_Click" Text="Product Lookup" Width="120px" />
                 </div>
                 <br />
                 <br />
             </asp:Panel>
+            <br />
             <br />
             <br />
             <br />
