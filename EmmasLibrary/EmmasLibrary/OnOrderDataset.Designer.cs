@@ -1055,16 +1055,19 @@ namespace EmmasLibrary.OnOrderDatasetTableAdapters {
             this._commandCollection[0].CommandText = @"SELECT        on_order.onordInvoiceNum, on_order.onordArriveDate, on_order.onordNumInOrder, on_order.onordPrice, on_order.inventoryID, on_order.prodorderID, prod_order.pordNumber, prod_order.pordDateOrdered, 
                          prod_order.pordPaid
 FROM            on_order INNER JOIN
-                         prod_order ON on_order.prodorderID = prod_order.id";
+                         prod_order ON on_order.prodorderID = prod_order.id
+WHERE        (on_order.inventoryID = @Param1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "inventoryID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(OnOrderDataset.on_orderDataTable dataTable) {
+        public virtual int Fill(OnOrderDataset.on_orderDataTable dataTable, int Param1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param1));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1076,8 +1079,9 @@ FROM            on_order INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual OnOrderDataset.on_orderDataTable GetData() {
+        public virtual OnOrderDataset.on_orderDataTable GetData(int Param1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param1));
             OnOrderDataset.on_orderDataTable dataTable = new OnOrderDataset.on_orderDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

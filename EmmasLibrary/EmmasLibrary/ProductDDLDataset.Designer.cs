@@ -281,7 +281,7 @@ namespace EmmasLibrary {
             
             private global::System.Data.DataColumn columnid;
             
-            private global::System.Data.DataColumn columnprodName;
+            private global::System.Data.DataColumn columnProduct;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -326,9 +326,9 @@ namespace EmmasLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn prodNameColumn {
+            public global::System.Data.DataColumn ProductColumn {
                 get {
-                    return this.columnprodName;
+                    return this.columnProduct;
                 }
             }
             
@@ -369,11 +369,11 @@ namespace EmmasLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public productRow AddproductRow(string prodName) {
+            public productRow AddproductRow(string Product) {
                 productRow rowproductRow = ((productRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        prodName};
+                        Product};
                 rowproductRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowproductRow);
                 return rowproductRow;
@@ -404,7 +404,7 @@ namespace EmmasLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
-                this.columnprodName = base.Columns["prodName"];
+                this.columnProduct = base.Columns["Product"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -412,8 +412,8 @@ namespace EmmasLibrary {
             private void InitClass() {
                 this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
-                this.columnprodName = new global::System.Data.DataColumn("prodName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnprodName);
+                this.columnProduct = new global::System.Data.DataColumn("Product", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -422,7 +422,8 @@ namespace EmmasLibrary {
                 this.columnid.AllowDBNull = false;
                 this.columnid.ReadOnly = true;
                 this.columnid.Unique = true;
-                this.columnprodName.MaxLength = 50;
+                this.columnProduct.ReadOnly = true;
+                this.columnProduct.MaxLength = 101;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -576,30 +577,30 @@ namespace EmmasLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string prodName {
+            public string Product {
                 get {
                     try {
-                        return ((string)(this[this.tableproduct.prodNameColumn]));
+                        return ((string)(this[this.tableproduct.ProductColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'prodName\' in table \'product\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Product\' in table \'product\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableproduct.prodNameColumn] = value;
+                    this[this.tableproduct.ProductColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsprodNameNull() {
-                return this.IsNull(this.tableproduct.prodNameColumn);
+            public bool IsProductNull() {
+                return this.IsNull(this.tableproduct.ProductColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetprodNameNull() {
-                this[this.tableproduct.prodNameColumn] = global::System.Convert.DBNull;
+            public void SetProductNull() {
+                this[this.tableproduct.ProductColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -763,33 +764,18 @@ namespace EmmasLibrary.ProductDDLDatasetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "product";
             tableMapping.ColumnMappings.Add("id", "id");
-            tableMapping.ColumnMappings.Add("prodName", "prodName");
+            tableMapping.ColumnMappings.Add("Product", "Product");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[product] WHERE (([id] = @Original_id) AND ((@IsNull_prodName =" +
-                " 1 AND [prodName] IS NULL) OR ([prodName] = @Original_prodName)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [product] WHERE (([id] = @Original_id))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_prodName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prodName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_prodName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prodName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[product] ([prodName]) VALUES (@prodName);\r\nSELECT id, prodName" +
-                " FROM product WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [product] DEFAULT VALUES;\r\nSELECT id, prodName + \' \' + prodBrand AS P" +
+                "roduct FROM product WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prodName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prodName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[product] SET [prodName] = @prodName WHERE (([id] = @Original_id) AN" +
-                "D ((@IsNull_prodName = 1 AND [prodName] IS NULL) OR ([prodName] = @Original_prod" +
-                "Name)));\r\nSELECT id, prodName FROM product WHERE (id = @id)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prodName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prodName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_prodName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prodName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_prodName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prodName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -805,7 +791,7 @@ namespace EmmasLibrary.ProductDDLDatasetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, prodName FROM dbo.product";
+            this._commandCollection[0].CommandText = "SELECT        id, prodName + \' \' + prodBrand AS Product\r\nFROM            product";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -866,16 +852,8 @@ namespace EmmasLibrary.ProductDDLDatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, string Original_prodName) {
+        public virtual int Delete(int Original_id) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
-            if ((Original_prodName == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_prodName));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -896,13 +874,7 @@ namespace EmmasLibrary.ProductDDLDatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string prodName) {
-            if ((prodName == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(prodName));
-            }
+        public virtual int Insert() {
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -917,51 +889,6 @@ namespace EmmasLibrary.ProductDDLDatasetTableAdapters {
                     this.Adapter.InsertCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string prodName, int Original_id, string Original_prodName, int id) {
-            if ((prodName == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(prodName));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_id));
-            if ((Original_prodName == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_prodName));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(id));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string prodName, int Original_id, string Original_prodName) {
-            return this.Update(prodName, Original_id, Original_prodName, Original_id);
         }
     }
     

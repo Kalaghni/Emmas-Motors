@@ -950,7 +950,7 @@ namespace EmmasLibrary.OrderLineDatasetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[order_line] WHERE (([id] = @Original_id) AND ((@IsNull_orlPrice = 1 AND [orlPrice] IS NULL) OR ([orlPrice] = @Original_orlPrice)) AND ((@IsNull_orlQuantity = 1 AND [orlQuantity] IS NULL) OR ([orlQuantity] = @Original_orlQuantity)) AND ((@IsNull_orlOrderReq = 1 AND [orlOrderReq] IS NULL) OR ([orlOrderReq] = @Original_orlOrderReq)) AND ((@IsNull_orlNote = 1 AND [orlNote] IS NULL) OR ([orlNote] = @Original_orlNote)) AND ([inventoryID] = @Original_inventoryID) AND ([receiptID] = @Original_receiptID))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [order_line] WHERE (([id] = @Original_id) AND ((@IsNull_orlPrice = 1 AND [orlPrice] IS NULL) OR ([orlPrice] = @Original_orlPrice)) AND ((@IsNull_orlQuantity = 1 AND [orlQuantity] IS NULL) OR ([orlQuantity] = @Original_orlQuantity)) AND ((@IsNull_orlOrderReq = 1 AND [orlOrderReq] IS NULL) OR ([orlOrderReq] = @Original_orlOrderReq)) AND ((@IsNull_orlNote = 1 AND [orlNote] IS NULL) OR ([orlNote] = @Original_orlNote)) AND ([inventoryID] = @Original_inventoryID) AND ([receiptID] = @Original_receiptID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_orlPrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orlPrice", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -965,7 +965,7 @@ namespace EmmasLibrary.OrderLineDatasetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_receiptID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "receiptID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[order_line] ([orlPrice], [orlQuantity], [orlOrderReq], [orlNote], [inventoryID], [receiptID]) VALUES (@orlPrice, @orlQuantity, @orlOrderReq, @orlNote, @inventoryID, @receiptID);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [order_line] ([orlPrice], [orlQuantity], [orlOrderReq], [orlNote], [inventoryID], [receiptID]) VALUES (@orlPrice, @orlQuantity, @orlOrderReq, @orlNote, @inventoryID, @receiptID);
 SELECT id, orlPrice, orlQuantity, orlOrderReq, orlNote, inventoryID, receiptID FROM order_line WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orlPrice", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orlPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -976,7 +976,7 @@ SELECT id, orlPrice, orlQuantity, orlOrderReq, orlNote, inventoryID, receiptID F
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@receiptID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "receiptID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[order_line] SET [orlPrice] = @orlPrice, [orlQuantity] = @orlQuantity, [orlOrderReq] = @orlOrderReq, [orlNote] = @orlNote, [inventoryID] = @inventoryID, [receiptID] = @receiptID WHERE (([id] = @Original_id) AND ((@IsNull_orlPrice = 1 AND [orlPrice] IS NULL) OR ([orlPrice] = @Original_orlPrice)) AND ((@IsNull_orlQuantity = 1 AND [orlQuantity] IS NULL) OR ([orlQuantity] = @Original_orlQuantity)) AND ((@IsNull_orlOrderReq = 1 AND [orlOrderReq] IS NULL) OR ([orlOrderReq] = @Original_orlOrderReq)) AND ((@IsNull_orlNote = 1 AND [orlNote] IS NULL) OR ([orlNote] = @Original_orlNote)) AND ([inventoryID] = @Original_inventoryID) AND ([receiptID] = @Original_receiptID));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [order_line] SET [orlPrice] = @orlPrice, [orlQuantity] = @orlQuantity, [orlOrderReq] = @orlOrderReq, [orlNote] = @orlNote, [inventoryID] = @inventoryID, [receiptID] = @receiptID WHERE (([id] = @Original_id) AND ((@IsNull_orlPrice = 1 AND [orlPrice] IS NULL) OR ([orlPrice] = @Original_orlPrice)) AND ((@IsNull_orlQuantity = 1 AND [orlQuantity] IS NULL) OR ([orlQuantity] = @Original_orlQuantity)) AND ((@IsNull_orlOrderReq = 1 AND [orlOrderReq] IS NULL) OR ([orlOrderReq] = @Original_orlOrderReq)) AND ((@IsNull_orlNote = 1 AND [orlNote] IS NULL) OR ([orlNote] = @Original_orlNote)) AND ([inventoryID] = @Original_inventoryID) AND ([receiptID] = @Original_receiptID));
 SELECT id, orlPrice, orlQuantity, orlOrderReq, orlNote, inventoryID, receiptID FROM order_line WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orlPrice", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "orlPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1012,17 +1012,19 @@ SELECT id, orlPrice, orlQuantity, orlOrderReq, orlNote, inventoryID, receiptID F
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, orlPrice, orlQuantity, orlOrderReq, orlNote, inventoryID, receiptID FR" +
-                "OM dbo.order_line";
+            this._commandCollection[0].CommandText = "SELECT        id, orlPrice, orlQuantity, orlOrderReq, orlNote, inventoryID, recei" +
+                "ptID\r\nFROM            order_line\r\nWHERE        (inventoryID = @Param1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "inventoryID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(OrderLineDataset.order_lineDataTable dataTable) {
+        public virtual int Fill(OrderLineDataset.order_lineDataTable dataTable, int Param1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param1));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1034,8 +1036,9 @@ SELECT id, orlPrice, orlQuantity, orlOrderReq, orlNote, inventoryID, receiptID F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual OrderLineDataset.order_lineDataTable GetData() {
+        public virtual OrderLineDataset.order_lineDataTable GetData(int Param1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param1));
             OrderLineDataset.order_lineDataTable dataTable = new OrderLineDataset.order_lineDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
