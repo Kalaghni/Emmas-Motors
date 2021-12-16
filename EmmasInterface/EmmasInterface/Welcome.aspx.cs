@@ -31,7 +31,7 @@ namespace EmmasInterface.Login_Pages
 
         protected void btnSale_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Sales.aspx");
+            Response.Redirect("~/SalesOption.aspx");
         }
 
         protected void btnInvoice_Click(object sender, EventArgs e)

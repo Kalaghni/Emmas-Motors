@@ -177,6 +177,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Product.aspx" />
     <Content Include="Registration.aspx" />
+    <Content Include="SalesOption.aspx" />
     <Content Include="style.css" />
     <Content Include="Welcome.aspx" />
     <Content Include="Sales.aspx" />
@@ -283,6 +284,13 @@
     </Compile>
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesOption.aspx.cs">
+      <DependentUpon>SalesOption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesOption.aspx.designer.cs">
+      <DependentUpon>SalesOption.aspx</DependentUpon>
     </Compile>
     <Compile Include="Welcome.aspx.cs">
       <DependentUpon>Welcome.aspx</DependentUpon>
