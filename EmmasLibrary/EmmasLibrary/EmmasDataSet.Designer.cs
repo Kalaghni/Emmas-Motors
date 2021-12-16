@@ -3369,10 +3369,11 @@ WHERE        (custID = @Param1) AND (paymentID = @Param2) AND (empID = @Param3) 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        orlPrice, orlQuantity, orlNote, product.prodName, product.prodBrand" +
-                "\r\nFROM            order_line\r\njoin inventory on order_line.inventoryID = invento" +
-                "ry.id\r\njoin product on inventory.productID = product.id\r\nWHERE        (receiptID" +
-                " = @Param1)";
+            this._commandCollection[0].CommandText = @"SELECT        order_line.orlPrice, order_line.orlQuantity, order_line.orlNote, product.prodName, product.prodBrand
+FROM            order_line INNER JOIN
+                         inventory ON order_line.inventoryID = inventory.id INNER JOIN
+                         product ON inventory.productID = product.id
+WHERE        (order_line.receiptID = @Param1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "receiptID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

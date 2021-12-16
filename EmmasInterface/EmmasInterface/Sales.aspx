@@ -52,7 +52,14 @@
             <asp:TextBox ID="txtProdQuant"  type="number" runat="server" Width="28px"></asp:TextBox>
             
             <br />
-            <asp:GridView ID="gvOrderProducts" runat="server" DataSourceID="odsProducts">
+            <asp:GridView ID="gvOrderProducts" runat="server" DataSourceID="odsProducts" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="orlPrice" HeaderText="orlPrice" SortExpression="orlPrice" />
+                    <asp:BoundField DataField="orlQuantity" HeaderText="orlQuantity" SortExpression="orlQuantity" />
+                    <asp:BoundField DataField="orlNote" HeaderText="orlNote" SortExpression="orlNote" />
+                    <asp:BoundField DataField="prodName" HeaderText="prodName" SortExpression="prodName" />
+                    <asp:BoundField DataField="prodBrand" HeaderText="prodBrand" SortExpression="prodBrand" />
+                </Columns>
             </asp:GridView>
             <br />
             Subtotal : <asp:Label ID="lblSubtotal" runat="server" Text="$0.00"></asp:Label>
@@ -88,14 +95,25 @@
             <br />
             <br />
             <br />
-            <asp:ObjectDataSource ID="odsCustomerLookup" runat="server"></asp:ObjectDataSource>
+            <asp:ObjectDataSource ID="odsCustomerLookup" runat="server" DeleteMethod="Delete" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.customerLookupTableAdapter">
+                <DeleteParameters>
+                    <asp:Parameter Name="Original_id" Type="Int32" />
+                </DeleteParameters>
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="txtSearchCust" Name="Param1" PropertyName="Text" Type="String" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
             <br />
             <br />
             
         </div>
         
         
-        <asp:ObjectDataSource ID="odsProducts" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.productTableAdapter"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="odsProducts" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.OrderProductsTableAdapter">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="ddlProducts" DefaultValue="0" Name="Param1" PropertyName="SelectedValue" Type="Int32" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
         
         
         <br />

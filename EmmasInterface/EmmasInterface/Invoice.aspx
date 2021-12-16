@@ -20,14 +20,14 @@
             <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtOrderNumber" ErrorMessage="!" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
             <br />
             Employee:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:DropDownList ID="ddlEmployee" runat="server" DataSourceID="EmployeeDataSource" DataTextField="empName" DataValueField="id" Height="30px" Width="128px">
+            <asp:DropDownList ID="ddlEmployee" runat="server" DataSourceID="EmployeeDataSource" DataTextField="empFull" DataValueField="id" Height="30px" Width="128px">
             </asp:DropDownList>
             <br />
             Payment:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddlPayment" runat="server" DataSourceID="PaymentDataSource" DataTextField="payType" DataValueField="id" Height="31px" Width="128px">
             </asp:DropDownList>
             <br />
             Customer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:DropDownList ID="ddlCustomer" runat="server" DataSourceID="CustomerDataSource" DataTextField="custName" DataValueField="id" Height="30px" Width="128px">
+            <asp:DropDownList ID="ddlCustomer" runat="server" DataSourceID="CustomerDataSource" DataTextField="custFullName" DataValueField="id" Height="30px" Width="128px">
             </asp:DropDownList>
             <br />
             <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" Width="98px" /> 
@@ -76,29 +76,21 @@
             <br />
             <br />
             <br />
-            <asp:ObjectDataSource ID="EmployeeDataSource" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.employeeTableAdapter" UpdateMethod="Update">
+            <asp:ObjectDataSource ID="EmployeeDataSource" runat="server" DeleteMethod="Delete" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.CustomerDataSetTableAdapters.EmployeeTableAdapter" UpdateMethod="Update">
                 <DeleteParameters>
                     <asp:Parameter Name="Original_id" Type="Int32" />
                     <asp:Parameter Name="Original_empFirst" Type="String" />
                     <asp:Parameter Name="Original_empLast" Type="String" />
-                    <asp:Parameter Name="Original_posID" Type="Int32" />
                 </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="empFirst" Type="String" />
-                    <asp:Parameter Name="empLast" Type="String" />
-                    <asp:Parameter Name="posID" Type="Int32" />
-                </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="empFirst" Type="String" />
                     <asp:Parameter Name="empLast" Type="String" />
-                    <asp:Parameter Name="posID" Type="Int32" />
                     <asp:Parameter Name="Original_id" Type="Int32" />
                     <asp:Parameter Name="Original_empFirst" Type="String" />
                     <asp:Parameter Name="Original_empLast" Type="String" />
-                    <asp:Parameter Name="Original_posID" Type="Int32" />
                 </UpdateParameters>
             </asp:ObjectDataSource>
-            <asp:ObjectDataSource ID="CustomerDataSource" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.customerTableAdapter" UpdateMethod="Update">
+            <asp:ObjectDataSource ID="CustomerDataSource" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.CustomerDataSetTableAdapters.CustomerTableAdapter" UpdateMethod="Update">
                 <DeleteParameters>
                     <asp:Parameter Name="Original_id" Type="Int32" />
                     <asp:Parameter Name="Original_custFirst" Type="String" />
@@ -136,7 +128,7 @@
                     <asp:Parameter Name="Original_custEmail" Type="String" />
                 </UpdateParameters>
             </asp:ObjectDataSource>
-            <asp:ObjectDataSource ID="PaymentDataSource" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.paymentTableAdapter" UpdateMethod="Update">
+            <asp:ObjectDataSource ID="PaymentDataSource" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.CustomerDataSetTableAdapters.PaymentTableAdapter" UpdateMethod="Update">
                 <DeleteParameters>
                     <asp:Parameter Name="Original_id" Type="Int32" />
                     <asp:Parameter Name="Original_payType" Type="String" />

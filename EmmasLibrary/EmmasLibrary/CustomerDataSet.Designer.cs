@@ -34,6 +34,8 @@ namespace EmmasLibrary {
         
         private PaymentDataTable tablePayment;
         
+        private global::System.Data.DataRelation relationreceipt_fk_custID;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -290,6 +292,7 @@ namespace EmmasLibrary {
                     this.tablePayment.InitVars();
                 }
             }
+            this.relationreceipt_fk_custID = this.Relations["receipt_fk_custID"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -310,6 +313,10 @@ namespace EmmasLibrary {
             base.Tables.Add(this.tableReceipt);
             this.tablePayment = new PaymentDataTable();
             base.Tables.Add(this.tablePayment);
+            this.relationreceipt_fk_custID = new global::System.Data.DataRelation("receipt_fk_custID", new global::System.Data.DataColumn[] {
+                        this.tableCustomer.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableReceipt.custIDColumn}, false);
+            this.Relations.Add(this.relationreceipt_fk_custID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -435,6 +442,8 @@ namespace EmmasLibrary {
             
             private global::System.Data.DataColumn columncustEmail;
             
+            private global::System.Data.DataColumn columncustFullName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public CustomerDataTable() {
@@ -534,6 +543,14 @@ namespace EmmasLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn custFullNameColumn {
+                get {
+                    return this.columncustFullName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -569,7 +586,7 @@ namespace EmmasLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CustomerRow AddCustomerRow(string custFirst, string custLast, string custPhone, string custAddress, string custCity, string custPostal, string custEmail) {
+            public CustomerRow AddCustomerRow(string custFirst, string custLast, string custPhone, string custAddress, string custCity, string custPostal, string custEmail, string custFullName) {
                 CustomerRow rowCustomerRow = ((CustomerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -579,7 +596,8 @@ namespace EmmasLibrary {
                         custAddress,
                         custCity,
                         custPostal,
-                        custEmail};
+                        custEmail,
+                        custFullName};
                 rowCustomerRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCustomerRow);
                 return rowCustomerRow;
@@ -617,6 +635,7 @@ namespace EmmasLibrary {
                 this.columncustCity = base.Columns["custCity"];
                 this.columncustPostal = base.Columns["custPostal"];
                 this.columncustEmail = base.Columns["custEmail"];
+                this.columncustFullName = base.Columns["custFullName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -638,6 +657,8 @@ namespace EmmasLibrary {
                 base.Columns.Add(this.columncustPostal);
                 this.columncustEmail = new global::System.Data.DataColumn("custEmail", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncustEmail);
+                this.columncustFullName = new global::System.Data.DataColumn("custFullName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncustFullName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -653,6 +674,8 @@ namespace EmmasLibrary {
                 this.columncustCity.MaxLength = 50;
                 this.columncustPostal.MaxLength = 6;
                 this.columncustEmail.MaxLength = 30;
+                this.columncustFullName.ReadOnly = true;
+                this.columncustFullName.MaxLength = 81;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1583,7 +1606,7 @@ namespace EmmasLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ReceiptRow AddReceiptRow(string ordNumber, System.DateTime ordDate, bool ordPaid, int paymentID, int custID, int empID) {
+            public ReceiptRow AddReceiptRow(string ordNumber, System.DateTime ordDate, bool ordPaid, int paymentID, CustomerRow parentCustomerRowByreceipt_fk_custID, int empID) {
                 ReceiptRow rowReceiptRow = ((ReceiptRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1591,8 +1614,11 @@ namespace EmmasLibrary {
                         ordDate,
                         ordPaid,
                         paymentID,
-                        custID,
+                        null,
                         empID};
+                if ((parentCustomerRowByreceipt_fk_custID != null)) {
+                    columnValuesArray[5] = parentCustomerRowByreceipt_fk_custID[0];
+                }
                 rowReceiptRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReceiptRow);
                 return rowReceiptRow;
@@ -2202,6 +2228,22 @@ namespace EmmasLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string custFullName {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomer.custFullNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'custFullName\' in table \'Customer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomer.custFullNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IscustFirstNull() {
                 return this.IsNull(this.tableCustomer.custFirstColumn);
             }
@@ -2282,6 +2324,29 @@ namespace EmmasLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetcustEmailNull() {
                 this[this.tableCustomer.custEmailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscustFullNameNull() {
+                return this.IsNull(this.tableCustomer.custFullNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcustFullNameNull() {
+                this[this.tableCustomer.custFullNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ReceiptRow[] GetReceiptRows() {
+                if ((this.Table.ChildRelations["receipt_fk_custID"] == null)) {
+                    return new ReceiptRow[0];
+                }
+                else {
+                    return ((ReceiptRow[])(base.GetChildRows(this.Table.ChildRelations["receipt_fk_custID"])));
+                }
             }
         }
         
@@ -2658,6 +2723,17 @@ namespace EmmasLibrary {
                 }
                 set {
                     this[this.tableReceipt.empIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CustomerRow CustomerRow {
+                get {
+                    return ((CustomerRow)(this.GetParentRow(this.Table.ParentRelations["receipt_fk_custID"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["receipt_fk_custID"]);
                 }
             }
             
@@ -3055,6 +3131,7 @@ namespace EmmasLibrary.CustomerDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("custCity", "custCity");
             tableMapping.ColumnMappings.Add("custPostal", "custPostal");
             tableMapping.ColumnMappings.Add("custEmail", "custEmail");
+            tableMapping.ColumnMappings.Add("custFullName", "custFullName");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -3078,7 +3155,7 @@ namespace EmmasLibrary.CustomerDataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [customer] ([custFirst], [custLast], [custPhone], [custAddress], [custCity], [custPostal], [custEmail]) VALUES (@custFirst, @custLast, @custPhone, @custAddress, @custCity, @custPostal, @custEmail);
-SELECT id, custFirst, custLast, custPhone, custAddress, custCity, custPostal, custEmail FROM customer WHERE (id = SCOPE_IDENTITY())";
+SELECT id, custFirst, custLast, custPhone, custAddress, custCity, custPostal, custEmail, custFirst + ' ' + custLast AS custFullName FROM customer WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@custFirst", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "custFirst", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@custLast", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "custLast", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3090,7 +3167,7 @@ SELECT id, custFirst, custLast, custPhone, custAddress, custCity, custPostal, cu
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [customer] SET [custFirst] = @custFirst, [custLast] = @custLast, [custPhone] = @custPhone, [custAddress] = @custAddress, [custCity] = @custCity, [custPostal] = @custPostal, [custEmail] = @custEmail WHERE (([id] = @Original_id) AND ((@IsNull_custFirst = 1 AND [custFirst] IS NULL) OR ([custFirst] = @Original_custFirst)) AND ((@IsNull_custLast = 1 AND [custLast] IS NULL) OR ([custLast] = @Original_custLast)) AND ((@IsNull_custPhone = 1 AND [custPhone] IS NULL) OR ([custPhone] = @Original_custPhone)) AND ((@IsNull_custAddress = 1 AND [custAddress] IS NULL) OR ([custAddress] = @Original_custAddress)) AND ((@IsNull_custCity = 1 AND [custCity] IS NULL) OR ([custCity] = @Original_custCity)) AND ((@IsNull_custPostal = 1 AND [custPostal] IS NULL) OR ([custPostal] = @Original_custPostal)) AND ((@IsNull_custEmail = 1 AND [custEmail] IS NULL) OR ([custEmail] = @Original_custEmail)));
-SELECT id, custFirst, custLast, custPhone, custAddress, custCity, custPostal, custEmail FROM customer WHERE (id = @id)";
+SELECT id, custFirst, custLast, custPhone, custAddress, custCity, custPostal, custEmail, custFirst + ' ' + custLast AS custFullName FROM customer WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@custFirst", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "custFirst", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@custLast", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "custLast", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3131,7 +3208,8 @@ SELECT id, custFirst, custLast, custPhone, custAddress, custCity, custPostal, cu
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        id, custFirst, custLast, custPhone, custAddress, custCity, custPost" +
-                "al, custEmail\r\nFROM            customer";
+                "al, custEmail, custFirst + \' \' +  custLast AS custFullName\r\nFROM            cust" +
+                "omer";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

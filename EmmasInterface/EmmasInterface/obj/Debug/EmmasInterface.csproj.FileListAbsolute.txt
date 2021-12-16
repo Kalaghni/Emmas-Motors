@@ -540,3 +540,4 @@ C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterf
 C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.csproj.CopyComplete
 C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.dll
 C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.pdb
+D:\Niagara College\Year 2\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.csprojAssemblyReference.cache
