@@ -8,8 +8,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
         <asp:ObjectDataSource ID="ProductDDL" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.ProductDDLDatasetTableAdapters.productTableAdapter" DeleteMethod="Delete">
             <DeleteParameters>
                 <asp:Parameter Name="Original_id" Type="Int32" />
@@ -51,7 +49,6 @@
                 <asp:Parameter Name="Original_productID" Type="Int32" />
             </UpdateParameters>
         </asp:ObjectDataSource>
-        <br />
         <asp:ObjectDataSource ID="OnOrderds" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.OnOrderDatasetTableAdapters.on_orderTableAdapter">
             <SelectParameters>
                 <asp:ControlParameter ControlID="Productlb" Name="Param1" PropertyName="SelectedValue" Type="Int32" />
@@ -94,48 +91,75 @@
                 <asp:Parameter Name="Original_receiptID" Type="Int32" />
             </UpdateParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="ProductCrudds" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.InventoryDataSetTableAdapters.inventoryTableAdapter" UpdateMethod="Update">
+        <asp:ObjectDataSource ID="ProductCrudds" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.ProductDDLDatasetTableAdapters.ProductCRUDTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
             <DeleteParameters>
                 <asp:Parameter Name="Original_id" Type="Int32" />
-                <asp:Parameter Name="Original_invQuantity" Type="Int32" />
-                <asp:Parameter Name="Original_invSize" Type="Decimal" />
-                <asp:Parameter Name="Original_invMeasure" Type="String" />
-                <asp:Parameter Name="Original_invPrice" Type="Decimal" />
-                <asp:Parameter Name="Original_productID" Type="Int32" />
+                <asp:Parameter Name="Original_prodName" Type="String" />
+                <asp:Parameter Name="Original_prodDescription" Type="String" />
+                <asp:Parameter Name="Original_prodBrand" Type="String" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="invQuantity" Type="Int32" />
-                <asp:Parameter Name="invSize" Type="Decimal" />
-                <asp:Parameter Name="invMeasure" Type="String" />
-                <asp:Parameter Name="invPrice" Type="Decimal" />
-                <asp:Parameter Name="productID" Type="Int32" />
+                <asp:Parameter Name="prodName" Type="String" />
+                <asp:Parameter Name="prodDescription" Type="String" />
+                <asp:Parameter Name="prodBrand" Type="String" />
             </InsertParameters>
             <SelectParameters>
                 <asp:ControlParameter ControlID="Productlb" Name="Param1" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
             <UpdateParameters>
-                <asp:Parameter Name="invQuantity" Type="Int32" />
-                <asp:Parameter Name="invSize" Type="Decimal" />
-                <asp:Parameter Name="invMeasure" Type="String" />
-                <asp:Parameter Name="invPrice" Type="Decimal" />
-                <asp:Parameter Name="productID" Type="Int32" />
+                <asp:Parameter Name="prodName" Type="String" />
+                <asp:Parameter Name="prodDescription" Type="String" />
+                <asp:Parameter Name="prodBrand" Type="String" />
                 <asp:Parameter Name="Original_id" Type="Int32" />
-                <asp:Parameter Name="Original_invQuantity" Type="Int32" />
-                <asp:Parameter Name="Original_invSize" Type="Decimal" />
-                <asp:Parameter Name="Original_invMeasure" Type="String" />
-                <asp:Parameter Name="Original_invPrice" Type="Decimal" />
-                <asp:Parameter Name="Original_productID" Type="Int32" />
+                <asp:Parameter Name="Original_prodName" Type="String" />
+                <asp:Parameter Name="Original_prodDescription" Type="String" />
+                <asp:Parameter Name="Original_prodBrand" Type="String" />
+                <asp:Parameter Name="id" Type="Int32" />
             </UpdateParameters>
         </asp:ObjectDataSource>
-        <asp:Panel ID="Panel1" runat="server" Height="740px">
-            <br />
-            <asp:TextBox ID="productSearch" runat="server"></asp:TextBox>
+        <asp:ObjectDataSource ID="OnOrderCRUD" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.ProductLookupDatasetTableAdapters.order_lineTableAdapter" UpdateMethod="Update">
+            <DeleteParameters>
+                <asp:Parameter Name="Original_id" Type="Int32" />
+                <asp:Parameter Name="Original_orlPrice" Type="Decimal" />
+                <asp:Parameter Name="Original_orlQuantity" Type="Int32" />
+                <asp:Parameter Name="Original_orlOrderReq" Type="Boolean" />
+                <asp:Parameter Name="Original_orlNote" Type="String" />
+                <asp:Parameter Name="Original_inventoryID" Type="Int32" />
+                <asp:Parameter Name="Original_receiptID" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="orlPrice" Type="Decimal" />
+                <asp:Parameter Name="orlQuantity" Type="Int32" />
+                <asp:Parameter Name="orlOrderReq" Type="Boolean" />
+                <asp:Parameter Name="orlNote" Type="String" />
+                <asp:Parameter Name="inventoryID" Type="Int32" />
+                <asp:Parameter Name="receiptID" Type="Int32" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="orlPrice" Type="Decimal" />
+                <asp:Parameter Name="orlQuantity" Type="Int32" />
+                <asp:Parameter Name="orlOrderReq" Type="Boolean" />
+                <asp:Parameter Name="orlNote" Type="String" />
+                <asp:Parameter Name="inventoryID" Type="Int32" />
+                <asp:Parameter Name="receiptID" Type="Int32" />
+                <asp:Parameter Name="Original_id" Type="Int32" />
+                <asp:Parameter Name="Original_orlPrice" Type="Decimal" />
+                <asp:Parameter Name="Original_orlQuantity" Type="Int32" />
+                <asp:Parameter Name="Original_orlOrderReq" Type="Boolean" />
+                <asp:Parameter Name="Original_orlNote" Type="String" />
+                <asp:Parameter Name="Original_inventoryID" Type="Int32" />
+                <asp:Parameter Name="Original_receiptID" Type="Int32" />
+            </UpdateParameters>
+        </asp:ObjectDataSource>
+        <br />
+        <asp:Panel ID="Panel1" runat="server" Height="636px">
+            <asp:TextBox ID="productSearch" runat="server" Height="24px" Width="157px"></asp:TextBox>
             <br />
             <asp:Button ID="Submit" runat="server" Height="28px" OnClick="Submit_Click" Text="Submit" />
             <br />
             <br />
             <br />
-            <asp:ListBox ID="Productlb" runat="server" AutoPostBack="True" DataSourceID="ProductDDL" DataTextField="Product" DataValueField="id" OnSelectedIndexChanged="Productlb_SelectedIndexChanged"></asp:ListBox>
+            <asp:ListBox ID="Productlb" runat="server" AutoPostBack="True" DataSourceID="ProductDDL" DataTextField="Product" DataValueField="id" OnSelectedIndexChanged="Productlb_SelectedIndexChanged" Height="106px" Width="124px"></asp:ListBox>
             <asp:FormView ID="Inventoryfv" runat="server" DataKeyNames="id" DataSourceID="Inventoryds" OnPageIndexChanging="Inventoryfv_PageIndexChanging">
                 <EditItemTemplate>
                     id:
@@ -203,6 +227,7 @@
             </asp:FormView>
             <br />
             <asp:GridView ID="OnOrdergv" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="OnOrderds">
+                <HeaderStyle BackColor="#03dffc" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="onordInvoiceNum" HeaderText="InvoiceNum" SortExpression="onordInvoiceNum" />
@@ -216,55 +241,106 @@
             </asp:GridView>
             <br />
             <asp:GridView ID="OrderLinegv" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="OrderLineds">
+                <HeaderStyle BackColor="#03dffc" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                    <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                    <asp:BoundField DataField="orlPrice" HeaderText="orlPrice" SortExpression="orlPrice" />
-                    <asp:BoundField DataField="orlQuantity" HeaderText="orlQuantity" SortExpression="orlQuantity" />
-                    <asp:CheckBoxField DataField="orlOrderReq" HeaderText="orlOrderReq" SortExpression="orlOrderReq" />
-                    <asp:BoundField DataField="orlNote" HeaderText="orlNote" SortExpression="orlNote" />
+                    <asp:BoundField DataField="id" HeaderText="Order Number" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                    <asp:BoundField DataField="orlPrice" HeaderText="Price" SortExpression="orlPrice" />
+                    <asp:BoundField DataField="orlQuantity" HeaderText="Quantity" SortExpression="orlQuantity" />
+                    <asp:CheckBoxField DataField="orlOrderReq" HeaderText="OrderReq" SortExpression="orlOrderReq" />
+                    <asp:BoundField DataField="orlNote" HeaderText="Note" SortExpression="orlNote" />
+                    <asp:BoundField DataField="receiptID" HeaderText="Receipt Number" SortExpression="receiptID" />
+                </Columns>
+            </asp:GridView>
+            <br />
+            <br />
+            <br />
+            <br />
+        </asp:Panel>
+        <br />
+        <asp:Panel ID="ProductCrudPanel" runat="server" Height="325px">
+            <asp:Label ID="label" runat="server" Text="Product Crud:"></asp:Label>
+            <br />
+            <asp:FormView ID="FormView1" runat="server" DataKeyNames="id" DataSourceID="ProductCrudds" OnPageIndexChanging="FormView1_PageIndexChanging">
+                <EditItemTemplate>
+                    id:
+                    <asp:Label ID="idLabel1" runat="server" Text='<%# Eval("id") %>' />
+                    <br />
+                    prodName:
+                    <asp:TextBox ID="prodNameTextBox" runat="server" Text='<%# Bind("prodName") %>' />
+                    <br />
+                    prodDescription:
+                    <asp:TextBox ID="prodDescriptionTextBox" runat="server" Text='<%# Bind("prodDescription") %>' />
+                    <br />
+                    prodBrand:
+                    <asp:TextBox ID="prodBrandTextBox" runat="server" Text='<%# Bind("prodBrand") %>' />
+                    <br />
+                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                    &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                </EditItemTemplate>
+                <InsertItemTemplate>
+                    prodName:
+                    <asp:TextBox ID="prodNameTextBox" runat="server" Text='<%# Bind("prodName") %>' />
+                    <br />
+                    prodDescription:
+                    <asp:TextBox ID="prodDescriptionTextBox" runat="server" Text='<%# Bind("prodDescription") %>' />
+                    <br />
+                    prodBrand:
+                    <asp:TextBox ID="prodBrandTextBox" runat="server" Text='<%# Bind("prodBrand") %>' />
+                    <br />
+                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                    &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                </InsertItemTemplate>
+                <ItemTemplate>
+                    Name:
+                    <asp:Label ID="prodNameLabel" runat="server" Text='<%# Bind("prodName") %>' />
+                    <br />
+                    Description:
+                    <asp:Label ID="prodDescriptionLabel" runat="server" Text='<%# Bind("prodDescription") %>' />
+                    <br />
+                    Brand:
+                    <asp:Label ID="prodBrandLabel" runat="server" Text='<%# Bind("prodBrand") %>' />
+                    <br />
+                    <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                    &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                    &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                </ItemTemplate>
+            </asp:FormView>
+            <br />
+            <asp:Label ID="Label4" runat="server" Text="Manage Inventory"></asp:Label>
+            :<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="Inventoryds" style="margin-top: 0px">
+                <HeaderStyle BackColor="#03dffc" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
+                <Columns>
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                    <asp:BoundField DataField="invQuantity" HeaderText="Quantity" SortExpression="invQuantity" />
+                    <asp:BoundField DataField="invSize" HeaderText="Size" SortExpression="invSize" />
+                    <asp:BoundField DataField="invMeasure" HeaderText="Measure" SortExpression="invMeasure" />
+                    <asp:BoundField DataField="invPrice" HeaderText="Price" SortExpression="invPrice" />
+                </Columns>
+            </asp:GridView>
+            <br />
+            <asp:Button ID="BackProd" runat="server" Text="Back" OnClick="BackProd_Click" />
+        </asp:Panel>
+        <asp:Panel ID="panelCrudOrder" runat="server" Height="165px">
+            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="OnOrderCRUD">
+                <HeaderStyle BackColor="#03dffc" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
+                <Columns>
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                    <asp:BoundField DataField="id" HeaderText="Order Number" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                    <asp:BoundField DataField="orlPrice" HeaderText="Price" SortExpression="orlPrice" />
+                    <asp:BoundField DataField="orlQuantity" HeaderText="Quantity" SortExpression="orlQuantity" />
+                    <asp:CheckBoxField DataField="orlOrderReq" HeaderText="OrderReq" SortExpression="orlOrderReq" />
+                    <asp:BoundField DataField="orlNote" HeaderText="Note" SortExpression="orlNote" />
                     <asp:BoundField DataField="inventoryID" HeaderText="inventoryID" SortExpression="inventoryID" />
                     <asp:BoundField DataField="receiptID" HeaderText="receiptID" SortExpression="receiptID" />
                 </Columns>
             </asp:GridView>
-            <br />
-            <br />
-            <br />
-            <br />
         </asp:Panel>
-        <br />
-        <asp:Panel ID="ProductCrudPanel" runat="server" Height="303px">
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="ProductCrudds">
-                <Columns>
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                    <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                    <asp:BoundField DataField="invQuantity" HeaderText="invQuantity" SortExpression="invQuantity" />
-                    <asp:BoundField DataField="invSize" HeaderText="invSize" SortExpression="invSize" />
-                    <asp:BoundField DataField="invMeasure" HeaderText="invMeasure" SortExpression="invMeasure" />
-                    <asp:BoundField DataField="invPrice" HeaderText="invPrice" SortExpression="invPrice" />
-                    <asp:BoundField DataField="productID" HeaderText="productID" SortExpression="productID" />
-                </Columns>
-            </asp:GridView>
-        </asp:Panel>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <br />
         <br />
             <asp:Panel ID="pntest" runat="server" Height="241px">
                 <asp:Label ID="Label3" runat="server" Text="Naviagte to another page:"></asp:Label>
-                <br />
+                <br />  
                 <br />
                 <div style="height: 28px">
                     <asp:Button ID="btnSale" runat="server" OnClick="btnSale_Click" Text="Sales" Width="120px" />

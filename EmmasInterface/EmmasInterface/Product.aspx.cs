@@ -11,7 +11,12 @@ namespace EmmasInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //
+            if (!IsPostBack)
+            {
+                ProductCrudPanel.Visible = false;
+            }
+            //
         }
 
         protected void Submit_Click(object sender, EventArgs e)
@@ -54,9 +59,21 @@ namespace EmmasInterface
         protected void SelectButton_Click(object sender, EventArgs e)
         {
             Panel1.Visible = false;
+            ProductCrudPanel.Visible = true;
         }
 
         protected void Productlb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BackProd_Click(object sender, EventArgs e)
+        {
+            Panel1.Visible = true;
+            ProductCrudPanel.Visible = false;
+        }
+
+        protected void FormView1_PageIndexChanging(object sender, FormViewPageEventArgs e)
         {
 
         }
