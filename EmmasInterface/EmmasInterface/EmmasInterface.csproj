@@ -161,6 +161,7 @@
     <Content Include="Customer.aspx" />
     <Content Include="CustomerOrders.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Employee.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -253,6 +254,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.aspx.cs">
+      <DependentUpon>Employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee.aspx.designer.cs">
+      <DependentUpon>Employee.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

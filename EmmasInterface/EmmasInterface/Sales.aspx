@@ -65,7 +65,7 @@
             <asp:Label ID="lblResult" runat="server"></asp:Label>
             <br />
             <asp:Panel ID="pntest" runat="server" Height="241px">
-                <asp:Label ID="Label3" runat="server" Text="Naviagte to another page:"></asp:Label>
+                <asp:Label ID="Label3" runat="server" Text="Navigate to another page:"></asp:Label>
                 <br />
                 <br />
                 <div style="height: 28px">

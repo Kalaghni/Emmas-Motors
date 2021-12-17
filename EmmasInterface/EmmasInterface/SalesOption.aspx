@@ -26,7 +26,7 @@
             <br />
         </div>
             <asp:Panel ID="pntest" runat="server" Height="241px">
-                <asp:Label ID="Label2" runat="server" Text="Naviagte to another page:"></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Navigate to another page:"></asp:Label>
                 <br />
                 <br />
                 <div style="height: 28px">
@@ -39,7 +39,7 @@
                     <asp:Button ID="btnEmployee" runat="server" OnClick="btnEmployee_Click" Text="Employee" Width="120px" />
                 </div>
                 <div style="height: 28px">
-                    <asp:Button ID="btnCustomer" runat="server" OnClick="btnSale_Click" Text="Customer" Width="120px" />
+                    <asp:Button ID="btnCustomer" runat="server" OnClick="btnCustomer_Click" Text="Customer" Width="120px" />
                 </div>
                 <div style="height: 28px">
                     <asp:Button ID="btnProdLookup" runat="server" OnClick="btnProdLookup_Click" Text="Product Lookup" Width="120px" />

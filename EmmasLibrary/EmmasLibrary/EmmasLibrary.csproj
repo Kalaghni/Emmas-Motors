@@ -47,7 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -71,6 +71,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EmmasDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="InventoryDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -136,6 +141,17 @@
     </None>
     <None Include="EmmasDataSet.xss">
       <DependentUpon>EmmasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EmployeeDataSet.xsc">
+      <DependentUpon>EmployeeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EmployeeDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmployeeDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EmployeeDataSet.xss">
+      <DependentUpon>EmployeeDataSet.xsd</DependentUpon>
     </None>
     <None Include="InventoryDataSet.xsc">
       <DependentUpon>InventoryDataSet.xsd</DependentUpon>
