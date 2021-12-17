@@ -21,7 +21,7 @@ namespace EmmasInterface
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            Productlb.Items.Add(productSearch.Text);
+            //Productlb.Items.Add(productSearch.Text);
         }
         protected void btnSale_Click(object sender, EventArgs e)
         {

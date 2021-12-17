@@ -258,7 +258,7 @@
             <br />
         </asp:Panel>
         <br />
-        <asp:Panel ID="ProductCrudPanel" runat="server" Height="325px" style="margin-top: 56px">
+        <asp:Panel ID="ProductCrudPanel" runat="server" Height="357px" style="margin-top: 56px">
             <asp:Label ID="label" runat="server" Text="Product Crud:"></asp:Label>
             <br />
             <asp:FormView ID="FormView1" runat="server" DataKeyNames="id" DataSourceID="ProductCrudds" OnPageIndexChanging="FormView1_PageIndexChanging">
@@ -321,22 +321,6 @@
             <br />
             <asp:Button ID="BackProd" runat="server" Text="Back" OnClick="BackProd_Click" />
         </asp:Panel>
-        <asp:Panel ID="panelCrudOrder" runat="server" Height="165px">
-            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="OnOrderCRUD">
-                <HeaderStyle BackColor="#03dffc" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
-                <Columns>
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                    <asp:BoundField DataField="id" HeaderText="Order Number" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                    <asp:BoundField DataField="orlPrice" HeaderText="Price" SortExpression="orlPrice" />
-                    <asp:BoundField DataField="orlQuantity" HeaderText="Quantity" SortExpression="orlQuantity" />
-                    <asp:CheckBoxField DataField="orlOrderReq" HeaderText="OrderReq" SortExpression="orlOrderReq" />
-                    <asp:BoundField DataField="orlNote" HeaderText="Note" SortExpression="orlNote" />
-                    <asp:BoundField DataField="inventoryID" HeaderText="inventoryID" SortExpression="inventoryID" />
-                    <asp:BoundField DataField="receiptID" HeaderText="receiptID" SortExpression="receiptID" />
-                </Columns>
-            </asp:GridView>
-        </asp:Panel>
-        <br />
         <br />
             <asp:Panel ID="pntest" runat="server" Height="241px">
                 <asp:Label ID="Label3" runat="server" Text="Naviagte to another page:"></asp:Label>

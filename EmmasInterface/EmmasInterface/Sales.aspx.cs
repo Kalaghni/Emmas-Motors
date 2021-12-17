@@ -109,7 +109,7 @@ namespace EmmasInterface
 
         protected void SearchCust(object sender, EventArgs e)
         {
-            lbCustNames.Items.Add(txtSearchCust.Text);
+            //lbCustNames.Items.Add(txtSearchCust.Text);
         }
 
         protected void AddToOrder(object sender, EventArgs e)
