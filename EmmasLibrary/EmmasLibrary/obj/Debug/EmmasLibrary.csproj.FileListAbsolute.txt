@@ -42,3 +42,4 @@ C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\
 C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.csproj.CoreCompileInputs.cache
 C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.dll
 C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.pdb
+D:\Niagara College\Year 2\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.csprojAssemblyReference.cache

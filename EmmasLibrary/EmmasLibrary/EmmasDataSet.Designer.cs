@@ -2216,9 +2216,9 @@ namespace EmmasLibrary {
             
             private global::System.Data.DataColumn columnprodBrand;
             
-            private global::System.Data.DataColumn columnorlPrice;
+            private global::System.Data.DataColumn columninvPrice;
             
-            private global::System.Data.DataColumn columnorlQuantity;
+            private global::System.Data.DataColumn columninvQuantity;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2279,17 +2279,17 @@ namespace EmmasLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn orlPriceColumn {
+            public global::System.Data.DataColumn invPriceColumn {
                 get {
-                    return this.columnorlPrice;
+                    return this.columninvPrice;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn orlQuantityColumn {
+            public global::System.Data.DataColumn invQuantityColumn {
                 get {
-                    return this.columnorlQuantity;
+                    return this.columninvQuantity;
                 }
             }
             
@@ -2330,14 +2330,14 @@ namespace EmmasLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SaleItemRow AddSaleItemRow(string prodName, string prodBrand, decimal orlPrice, int orlQuantity) {
+            public SaleItemRow AddSaleItemRow(string prodName, string prodBrand, decimal invPrice, int invQuantity) {
                 SaleItemRow rowSaleItemRow = ((SaleItemRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         prodName,
                         prodBrand,
-                        orlPrice,
-                        orlQuantity};
+                        invPrice,
+                        invQuantity};
                 rowSaleItemRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSaleItemRow);
                 return rowSaleItemRow;
@@ -2370,8 +2370,8 @@ namespace EmmasLibrary {
                 this.columnid = base.Columns["id"];
                 this.columnprodName = base.Columns["prodName"];
                 this.columnprodBrand = base.Columns["prodBrand"];
-                this.columnorlPrice = base.Columns["orlPrice"];
-                this.columnorlQuantity = base.Columns["orlQuantity"];
+                this.columninvPrice = base.Columns["invPrice"];
+                this.columninvQuantity = base.Columns["invQuantity"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2383,10 +2383,10 @@ namespace EmmasLibrary {
                 base.Columns.Add(this.columnprodName);
                 this.columnprodBrand = new global::System.Data.DataColumn("prodBrand", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprodBrand);
-                this.columnorlPrice = new global::System.Data.DataColumn("orlPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnorlPrice);
-                this.columnorlQuantity = new global::System.Data.DataColumn("orlQuantity", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnorlQuantity);
+                this.columninvPrice = new global::System.Data.DataColumn("invPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninvPrice);
+                this.columninvQuantity = new global::System.Data.DataColumn("invQuantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninvQuantity);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -3614,33 +3614,33 @@ namespace EmmasLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal orlPrice {
+            public decimal invPrice {
                 get {
                     try {
-                        return ((decimal)(this[this.tableSaleItem.orlPriceColumn]));
+                        return ((decimal)(this[this.tableSaleItem.invPriceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'orlPrice\' in table \'SaleItem\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'invPrice\' in table \'SaleItem\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSaleItem.orlPriceColumn] = value;
+                    this[this.tableSaleItem.invPriceColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int orlQuantity {
+            public int invQuantity {
                 get {
                     try {
-                        return ((int)(this[this.tableSaleItem.orlQuantityColumn]));
+                        return ((int)(this[this.tableSaleItem.invQuantityColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'orlQuantity\' in table \'SaleItem\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'invQuantity\' in table \'SaleItem\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSaleItem.orlQuantityColumn] = value;
+                    this[this.tableSaleItem.invQuantityColumn] = value;
                 }
             }
             
@@ -3670,26 +3670,26 @@ namespace EmmasLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsorlPriceNull() {
-                return this.IsNull(this.tableSaleItem.orlPriceColumn);
+            public bool IsinvPriceNull() {
+                return this.IsNull(this.tableSaleItem.invPriceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetorlPriceNull() {
-                this[this.tableSaleItem.orlPriceColumn] = global::System.Convert.DBNull;
+            public void SetinvPriceNull() {
+                this[this.tableSaleItem.invPriceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsorlQuantityNull() {
-                return this.IsNull(this.tableSaleItem.orlQuantityColumn);
+            public bool IsinvQuantityNull() {
+                return this.IsNull(this.tableSaleItem.invQuantityColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetorlQuantityNull() {
-                this[this.tableSaleItem.orlQuantityColumn] = global::System.Convert.DBNull;
+            public void SetinvQuantityNull() {
+                this[this.tableSaleItem.invQuantityColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4941,8 +4941,8 @@ WHERE        (order_line.receiptID = @Param1)";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("prodName", "prodName");
             tableMapping.ColumnMappings.Add("prodBrand", "prodBrand");
-            tableMapping.ColumnMappings.Add("orlPrice", "orlPrice");
-            tableMapping.ColumnMappings.Add("orlQuantity", "orlQuantity");
+            tableMapping.ColumnMappings.Add("invPrice", "invPrice");
+            tableMapping.ColumnMappings.Add("invQuantity", "invQuantity");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -4959,10 +4959,10 @@ WHERE        (order_line.receiptID = @Param1)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        product.id, product.prodName, product.prodBrand, order_line.orlPric" +
-                "e, order_line.orlQuantity\r\nFROM            order_line INNER JOIN\r\n              " +
-                "           product ON order_line.id = product.id\r\nWHERE        (product.id = @Pa" +
-                "ram1)";
+            this._commandCollection[0].CommandText = "SELECT        product.id, product.prodName, product.prodBrand, inventory.invPrice" +
+                ", inventory.invQuantity\r\nFROM            product INNER JOIN\r\n                   " +
+                "      inventory ON product.id = inventory.productID\r\nWHERE        (product.id = " +
+                "@Param1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

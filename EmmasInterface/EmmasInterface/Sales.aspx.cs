@@ -22,12 +22,23 @@ namespace EmmasInterface
 
         static customerLookupTableAdapter taCustomer = new customerLookupTableAdapter();
         static SaleItemTableAdapter taSaleItem = new SaleItemTableAdapter();
+
+        private decimal subTotal;
+        private decimal tax;
+        private decimal total;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (User.Identity.IsAuthenticated)
             {
-                
+                if (!this.IsPostBack)
+                {
+                    /*subTotal = 0M;
+                    tax = 0M;
+                    total = 0M;*/
+
+                }
                 pntest.Visible = true;
             }
             else
@@ -91,13 +102,24 @@ namespace EmmasInterface
 
         protected void AddToOrder(object sender, EventArgs e)
         {
-            var ItemToAdd = taSaleItem.GetData(ddlProducts.SelectedIndex);
+            var ItemToAdd = taSaleItem.GetData(ddlProducts.SelectedIndex + 1);
+
             try
             {
-                if (ItemToAdd.Count > 0)
-                    lbProductOrder.Items.Add(ItemToAdd[0].prodName);
+                if (ItemToAdd.Count >= 0 && ItemToAdd[0].invQuantity >= Convert.ToInt32(txtProdQuant.Text))
+                {
+                    lbProductOrder.Items.Add(ItemToAdd[0].prodName + ", " + ItemToAdd[0].prodBrand + " Price: $" + ItemToAdd[0].invPrice * Convert.ToInt32(txtProdQuant.Text) + " Quantity: " + txtProdQuant.Text);
+                    subTotal += ItemToAdd[0].invPrice * Convert.ToDecimal(txtProdQuant.Text);
+                    tax += ItemToAdd[0].invPrice * 0.13M;
+                    total += subTotal + tax;
+
+                    lblSubtotal.Text = subTotal.ToString();
+                    lblTax.Text = tax.ToString();
+                    lblTotal.Text = total.ToString();
+                }
+                    
                 else
-                    txtSearchCust.Text = "No items found";
+                    txtSearchCust.Text = "There is not enough stock";
             }
             catch
             {
