@@ -152,14 +152,16 @@
             </UpdateParameters>
         </asp:ObjectDataSource>
         <br />
-        <asp:Panel ID="Panel1" runat="server" Height="636px">
+        <asp:Panel ID="Panel1" runat="server" Height="768px">
+            <asp:Label ID="Label5" runat="server" Text="Search for product:"></asp:Label>
+            <br />
             <asp:TextBox ID="productSearch" runat="server" Height="24px" Width="157px"></asp:TextBox>
             <br />
             <asp:Button ID="Submit" runat="server" Height="28px" OnClick="Submit_Click" Text="Submit" />
             <br />
             <br />
             <br />
-            <asp:ListBox ID="Productlb" runat="server" AutoPostBack="True" DataSourceID="ProductDDL" DataTextField="Product" DataValueField="id" OnSelectedIndexChanged="Productlb_SelectedIndexChanged" Height="106px" Width="124px"></asp:ListBox>
+            <asp:ListBox ID="Productlb" runat="server" AutoPostBack="True" DataSourceID="ProductDDL" DataTextField="Product" DataValueField="id" OnSelectedIndexChanged="Productlb_SelectedIndexChanged" Height="138px" Width="209px"></asp:ListBox>
             <asp:FormView ID="Inventoryfv" runat="server" DataKeyNames="id" DataSourceID="Inventoryds" OnPageIndexChanging="Inventoryfv_PageIndexChanging">
                 <EditItemTemplate>
                     id:
@@ -203,33 +205,28 @@
                     &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                 </InsertItemTemplate>
                 <ItemTemplate>
-                    id:
-                    <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
-                    <br />
-                    invQuantity:
+                    Quantity:
                     <asp:Label ID="invQuantityLabel" runat="server" Text='<%# Bind("invQuantity") %>' />
                     <br />
-                    invSize:
+                    Size:
                     <asp:Label ID="invSizeLabel" runat="server" Text='<%# Bind("invSize") %>' />
                     <br />
-                    invMeasure:
+                    Measure:
                     <asp:Label ID="invMeasureLabel" runat="server" Text='<%# Bind("invMeasure") %>' />
                     <br />
-                    invPrice:
+                    Price:
                     <asp:Label ID="invPriceLabel" runat="server" Text='<%# Bind("invPrice") %>' />
-                    <br />
-                    productID:
-                    <asp:Label ID="productIDLabel" runat="server" Text='<%# Bind("productID") %>' />
                     <br />
                     <asp:LinkButton ID="SelectButton" runat="server" CausesValidation="False" CommandName="Select" OnClick="SelectButton_Click" Text="Select" />
                     &nbsp;&nbsp;
                 </ItemTemplate>
             </asp:FormView>
             <br />
-            <asp:GridView ID="OnOrdergv" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="OnOrderds">
+            <asp:Label ID="Label6" runat="server" Text=" "></asp:Label>
+            <br />
+            <asp:GridView ID="OnOrdergv" runat="server" AutoGenerateColumns="False" DataSourceID="OnOrderds">
                 <HeaderStyle BackColor="#03dffc" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
                 <Columns>
-                    <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="onordInvoiceNum" HeaderText="InvoiceNum" SortExpression="onordInvoiceNum" />
                     <asp:BoundField DataField="onordArriveDate" DataFormatString="{0:d}" HeaderText="ArriveDate" SortExpression="onordArriveDate" />
                     <asp:BoundField DataField="onordNumInOrder" HeaderText="Number In Order" SortExpression="onordNumInOrder" />
@@ -239,6 +236,10 @@
                     <asp:CheckBoxField DataField="pordPaid" HeaderText="Paid?" SortExpression="pordPaid" />
                 </Columns>
             </asp:GridView>
+            <asp:Label ID="orderLabel" runat="server" Text="Item is not on any order" Visible="False"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="Label7" runat="server" Text=" "></asp:Label>
             <br />
             <asp:GridView ID="OrderLinegv" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="OrderLineds">
                 <HeaderStyle BackColor="#03dffc" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
@@ -252,13 +253,12 @@
                     <asp:BoundField DataField="receiptID" HeaderText="Receipt Number" SortExpression="receiptID" />
                 </Columns>
             </asp:GridView>
-            <br />
-            <br />
+            <asp:Label ID="orderLineLabel" runat="server" Text="Order Line is empty" Visible="False"></asp:Label>
             <br />
             <br />
         </asp:Panel>
         <br />
-        <asp:Panel ID="ProductCrudPanel" runat="server" Height="325px">
+        <asp:Panel ID="ProductCrudPanel" runat="server" Height="325px" style="margin-top: 56px">
             <asp:Label ID="label" runat="server" Text="Product Crud:"></asp:Label>
             <br />
             <asp:FormView ID="FormView1" runat="server" DataKeyNames="id" DataSourceID="ProductCrudds" OnPageIndexChanging="FormView1_PageIndexChanging">

@@ -87,6 +87,15 @@ namespace EmmasInterface
         protected global::System.Web.UI.WebControls.Panel Panel1;
 
         /// <summary>
+        /// Label5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+
+        /// <summary>
         /// productSearch control.
         /// </summary>
         /// <remarks>
@@ -123,6 +132,15 @@ namespace EmmasInterface
         protected global::System.Web.UI.WebControls.FormView Inventoryfv;
 
         /// <summary>
+        /// Label6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
+
+        /// <summary>
         /// OnOrdergv control.
         /// </summary>
         /// <remarks>
@@ -132,6 +150,24 @@ namespace EmmasInterface
         protected global::System.Web.UI.WebControls.GridView OnOrdergv;
 
         /// <summary>
+        /// orderLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label orderLabel;
+
+        /// <summary>
+        /// Label7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label7;
+
+        /// <summary>
         /// OrderLinegv control.
         /// </summary>
         /// <remarks>
@@ -139,6 +175,15 @@ namespace EmmasInterface
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView OrderLinegv;
+
+        /// <summary>
+        /// orderLineLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label orderLineLabel;
 
         /// <summary>
         /// ProductCrudPanel control.

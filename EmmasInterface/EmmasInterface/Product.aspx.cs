@@ -64,6 +64,28 @@ namespace EmmasInterface
 
         protected void Productlb_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Label6.Text = "Products on order:";
+            Label7.Text = "Order Line:";
+            /*
+            int rowCount = OnOrdergv.Rows.Count;
+
+            if (rowCount == 0)
+            {
+                orderLabel.Visible = true;
+            }
+            else
+            {
+                orderLabel.Visible = false;
+            }
+
+            if (OrderLinegv.Rows.Count == 0)
+            {
+                orderLineLabel.Visible = true;
+            }
+            else
+            {
+                orderLineLabel.Visible = false;
+            }*/
 
         }
 
