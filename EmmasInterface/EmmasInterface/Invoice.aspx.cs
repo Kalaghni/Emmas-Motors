@@ -107,5 +107,10 @@ namespace EmmasInterface
         {
             Response.Redirect("~/Product.aspx");
         }
+
+        protected void txtOrderNumber_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

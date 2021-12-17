@@ -15,7 +15,7 @@
     <form id="form1" runat="server">
         <div>
             Order Number:
-            <asp:TextBox ID="txtOrderNumber" runat="server" Height="20px" Width="128px"></asp:TextBox>
+            <asp:TextBox ID="txtOrderNumber" runat="server" Height="20px" Width="128px" OnTextChanged="txtOrderNumber_TextChanged"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtOrderNumber" ErrorMessage="*"></asp:RequiredFieldValidator>
             <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtOrderNumber" ErrorMessage="!" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
             <br />
@@ -63,10 +63,10 @@
                     <asp:Button ID="btnEmployee" runat="server" OnClick="btnEmployee_Click" Text="Employee" Width="120px" />
                 </div>
                 <div style="height: 28px">
-                    <asp:Button ID="btnCustomer" runat="server" OnClick="btnSale_Click" Text="Customer" Width="120px" />
+                    <asp:Button ID="btnCustomer" runat="server" OnClick="btnCustomer_Click" Text="Customer" Width="120px" />
                 </div>
                 <div style="height: 28px">
-                    <asp:Button ID="btnProdLookup" runat="server" OnClick="btnInvoice_Click" Text="Product Lookup" Width="120px" />
+                    <asp:Button ID="btnProdLookup" runat="server" OnClick="btnProdLookup_Click" Text="Product Lookup" Width="120px" />
                 </div>
                 <br />
                 <br />

@@ -87,7 +87,7 @@
                     <asp:Button ID="btnCustomer" runat="server" OnClick="btnSale_Click" Text="Customer" Width="120px" />
                 </div>
                 <div style="height: 28px">
-                    <asp:Button ID="btnProdLookup" runat="server" OnClick="btnInvoice_Click" Text="Product Lookup" Width="120px" />
+                    <asp:Button ID="btnProdLookup" runat="server" OnClick="btnProdLookup_Click" Text="Product Lookup" Width="120px" />
                 </div>
                 <br />
                 <br />

@@ -34,3 +34,12 @@ D:\Niagara College\Year 2\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\Emmas
 D:\Niagara College\Year 2\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.csproj.CoreCompileInputs.cache
 D:\Niagara College\Year 2\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.dll
 D:\Niagara College\Year 2\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.pdb
+C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\Emmas.mdf
+C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\Emmas_log.ldf
+C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\EmmasLibrary.dll.config
+C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\EmmasLibrary.dll
+C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\EmmasLibrary.pdb
+C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.csproj.AssemblyReference.cache
+C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.csproj.CoreCompileInputs.cache
+C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.dll
+C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.pdb
