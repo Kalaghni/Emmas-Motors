@@ -34,11 +34,10 @@ namespace EmmasInterface
 
         protected void gvCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Commented it out because was giving errors - ZachB
-            /*Class1.customerIndex = int.Parse(gvCustomer.SelectedRow.Cells[1].Text) - 1;
+            Class1.customerIndex = int.Parse(gvCustomer.SelectedRow.Cells[1].Text) - 1;
             Class1.customerValue = gvCustomer.SelectedRow.Cells[2].Text + " "
                                  + gvCustomer.SelectedRow.Cells[3].Text;
-            Response.Redirect("CustomerOrder.aspx");*/
+            Response.Redirect("~/CustomerOrders.aspx");
         }
         protected void btnSale_Click(object sender, EventArgs e)
         {

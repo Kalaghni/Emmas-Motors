@@ -12,42 +12,45 @@
         <div>
             <h1><asp:Label ID="lblMain" runat="server" style=" background-color: #03dffc; color: #ffffff;">Customer</asp:Label></h1>
             <hr />
-            <asp:GridView GridLines="None" CellPadding="10" ID="gvCustomer" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="odsCustomer" CssClass="cssgridview" OnSelectedIndexChanged="gvCustomer_SelectedIndexChanged">
+            <asp:GridView ID="gvCustomer" runat="server" AutoGenerateColumns="False" CellPadding="10" CssClass="cssgridview" DataKeyNames="id" DataSourceID="odsCustomer" GridLines="None" OnSelectedIndexChanged="gvCustomer_SelectedIndexChanged">
                 <HeaderStyle BackColor="#03dffc" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
                 <Columns>
-                    <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                    <asp:BoundField DataField="custFirst" HeaderText="custFirst" SortExpression="custFirst" />
-                    <asp:BoundField DataField="custLast" HeaderText="custLast" SortExpression="custLast" />
-                    <asp:BoundField DataField="custPhone" HeaderText="custPhone" SortExpression="custPhone" />
-                    <asp:BoundField DataField="custAddress" HeaderText="custAddress" SortExpression="custAddress" />
-                    <asp:BoundField DataField="custCity" HeaderText="custCity" SortExpression="custCity" />
-                    <asp:BoundField DataField="custPostal" HeaderText="custPostal" SortExpression="custPostal" />
-                    <asp:BoundField DataField="custEmail" HeaderText="custEmail" SortExpression="custEmail" />
-                    <asp:BoundField DataField="custFullName" HeaderText="custFullName" ReadOnly="True" SortExpression="custFullName" />
+                    <asp:TemplateField ShowHeader="False">
+                        <EditItemTemplate>
+                            <asp:LinkButton ID="lbtnUpdate" runat="server" CausesValidation="True" CommandName="Update" Text="Update"></asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="lbtnCancel" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
+                        </EditItemTemplate>
+                        <HeaderTemplate>
+                            <asp:LinkButton ID="lbtnCreate" runat="server" ForeColor="#ffffff" OnClick="lbtnCreate_Click">New Customer</asp:LinkButton>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="lbtnEdit" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="lbtnSelect" runat="server" CausesValidation="False" CommandName="Select" Text="Select"></asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="lbtnDelete" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm(&quot;Are you sure you want to delete this item?&quot;);" Text="Delete"></asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                    <asp:BoundField DataField="custFirst" HeaderText="First Name" SortExpression="custFirst" />
+                    <asp:BoundField DataField="custLast" HeaderText="Last Name" SortExpression="custLast" />
+                    <asp:BoundField DataField="custPhone" HeaderText="Phone" SortExpression="custPhone" />
+                    <asp:BoundField DataField="custAddress" HeaderText="Address" SortExpression="custAddress" />
+                    <asp:BoundField DataField="custCity" HeaderText="City" SortExpression="custCity" />
+                    <asp:BoundField DataField="custPostal" HeaderText="Postal" SortExpression="custPostal" />
+                    <asp:BoundField DataField="custEmail" HeaderText="Email" SortExpression="custEmail" />
                 </Columns>
                 <FooterStyle HorizontalAlign="Left" />
             </asp:GridView>
-            <asp:DetailsView GridLines="None" CssClass="cssgridview" CellPadding="10"
-                ID="dvCustomer" 
-                runat="server" 
-                AutoGenerateRows="False" 
-                DataKeyNames="id" 
-                DataSourceID="odsCustomer" 
-                Height="50px" 
-                Width="300px" 
-                Visible="False" 
-                DefaultMode="Insert" 
-                OnItemCommand="dvCustomer_ItemCommand">
+            <asp:DetailsView ID="dvCustomer" runat="server" AutoGenerateRows="False" CellPadding="10" CssClass="cssgridview" DataKeyNames="id" DataSourceID="odsCustomer" DefaultMode="Insert" GridLines="None" Height="50px" OnItemCommand="dvCustomer_ItemCommand" Visible="False" Width="300px">
                 <Fields>
-                    <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" InsertVisible="False" ReadOnly="True" />
-                    <asp:BoundField DataField="custFirst" HeaderText="custFirst" SortExpression="custFirst" />
-                    <asp:BoundField DataField="custLast" HeaderText="custLast" SortExpression="custLast" />
-                    <asp:BoundField DataField="custPhone" HeaderText="custPhone" SortExpression="custPhone" />
-                    <asp:BoundField DataField="custAddress" HeaderText="custAddress" SortExpression="custAddress" />
-                    <asp:BoundField DataField="custCity" HeaderText="custCity" SortExpression="custCity" />
-                    <asp:BoundField DataField="custPostal" HeaderText="custPostal" SortExpression="custPostal" />
-                    <asp:BoundField DataField="custEmail" HeaderText="custEmail" SortExpression="custEmail" />
-                    <asp:BoundField DataField="custFullName" HeaderText="custFullName" ReadOnly="True" SortExpression="custFullName" />
+                    <asp:BoundField DataField="custFirst" HeaderText="First Name" SortExpression="custFirst" />
+                    <asp:BoundField DataField="id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                    <asp:BoundField DataField="custLast" HeaderText="Last Name" SortExpression="custLast" />
+                    <asp:BoundField DataField="custPhone" HeaderText="Phone" SortExpression="custPhone" />
+                    <asp:BoundField DataField="custAddress" HeaderText="Address" SortExpression="custAddress" />
+                    <asp:BoundField DataField="custCity" HeaderText="City" SortExpression="custCity" />
+                    <asp:BoundField DataField="custPostal" HeaderText="Postal" SortExpression="custPostal" />
+                    <asp:BoundField DataField="custEmail" HeaderText="Email" SortExpression="custEmail" />
+                    <asp:CommandField ShowInsertButton="True" />
                 </Fields>
             </asp:DetailsView>
             <asp:Panel ID="pntest" runat="server" Height="241px">

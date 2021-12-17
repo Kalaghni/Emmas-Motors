@@ -11,11 +11,10 @@ namespace EmmasInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Comment it out, because build errors - ZachB
-           /* if (Class1.customerIndex != -1)
+            if (Class1.customerIndex != -1)
                 lblTitle.Text = "Details: " + Class1.customerValue;
 
-            dvCustomerDetails.PageIndex = Class1.customerIndex;*/
+            dvCustomerDetails.PageIndex = Class1.customerIndex;
         }
     }
 }

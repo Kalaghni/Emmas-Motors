@@ -28,7 +28,7 @@
                 <HeaderStyle BackColor="#03dffc" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
                 <FooterStyle HorizontalAlign="Left" />
                 <Columns>
-                    <asp:CommandField ShowEditButton="True" ShowSelectButton="True" />
+                    <asp:CommandField ShowEditButton="True" />
                     <asp:BoundField DataField="id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                     <asp:BoundField DataField="ordNumber" HeaderText="Order Number" SortExpression="ordNumber" />
                     <asp:BoundField DataField="ordDate" HeaderText="Date" SortExpression="ordDate" DataFormatString="{0:d}" />
@@ -53,9 +53,10 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+            <a href="Customer.aspx">Return to customer table</a><br />
             <br />
             <br />
-            <asp:ObjectDataSource ID="odsOrderDetails" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.order_lineTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
+            <asp:ObjectDataSource ID="odsOrderDetails" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.CustomerDataSetTableAdapters.OrderDetailsTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
                 <DeleteParameters>
                     <asp:Parameter Name="Original_id" Type="Int32" />
                     <asp:Parameter Name="Original_orlPrice" Type="Decimal" />
@@ -73,6 +74,9 @@
                     <asp:Parameter Name="inventoryID" Type="Int32" />
                     <asp:Parameter Name="receiptID" Type="Int32" />
                 </InsertParameters>
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="dvCustomerDetails" Name="Param1" PropertyName="SelectedValue" Type="Int32" />
+                </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="orlPrice" Type="Decimal" />
                     <asp:Parameter Name="orlQuantity" Type="Int32" />
@@ -89,7 +93,7 @@
                     <asp:Parameter Name="Original_receiptID" Type="Int32" />
                 </UpdateParameters>
             </asp:ObjectDataSource>
-            <asp:ObjectDataSource ID="odsCustomer" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.customerTableAdapter" UpdateMethod="Update">
+            <asp:ObjectDataSource ID="odsCustomer" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.CustomerDataSetTableAdapters.CustomerTableAdapter" UpdateMethod="Update">
                 <DeleteParameters>
                     <asp:Parameter Name="Original_id" Type="Int32" />
                     <asp:Parameter Name="Original_custFirst" Type="String" />
@@ -127,7 +131,16 @@
                     <asp:Parameter Name="Original_custEmail" Type="String" />
                 </UpdateParameters>
             </asp:ObjectDataSource>
-            <asp:ObjectDataSource ID="odsReceipt" runat="server" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.receiptTableAdapter">
+            <asp:ObjectDataSource ID="odsReceipt" runat="server" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.CustomerDataSetTableAdapters.ReceiptTableAdapter" DeleteMethod="Delete" UpdateMethod="Update">
+                <DeleteParameters>
+                    <asp:Parameter Name="Original_id" Type="Int32" />
+                    <asp:Parameter Name="Original_ordNumber" Type="String" />
+                    <asp:Parameter Name="Original_ordDate" Type="DateTime" />
+                    <asp:Parameter Name="Original_ordPaid" Type="Boolean" />
+                    <asp:Parameter Name="Original_paymentID" Type="Int32" />
+                    <asp:Parameter Name="Original_custID" Type="Int32" />
+                    <asp:Parameter Name="Original_empID" Type="Int32" />
+                </DeleteParameters>
                 <InsertParameters>
                     <asp:Parameter Name="ordNumber" Type="String" />
                     <asp:Parameter Name="ordDate" Type="DateTime" />
@@ -136,8 +149,26 @@
                     <asp:Parameter Name="custID" Type="Int32" />
                     <asp:Parameter Name="empID" Type="Int32" />
                 </InsertParameters>
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="dvCustomerDetails" Name="Param1" PropertyName="SelectedValue" Type="Int32" />
+                </SelectParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="ordNumber" Type="String" />
+                    <asp:Parameter Name="ordDate" Type="DateTime" />
+                    <asp:Parameter Name="ordPaid" Type="Boolean" />
+                    <asp:Parameter Name="paymentID" Type="Int32" />
+                    <asp:Parameter Name="custID" Type="Int32" />
+                    <asp:Parameter Name="empID" Type="Int32" />
+                    <asp:Parameter Name="Original_id" Type="Int32" />
+                    <asp:Parameter Name="Original_ordNumber" Type="String" />
+                    <asp:Parameter Name="Original_ordDate" Type="DateTime" />
+                    <asp:Parameter Name="Original_ordPaid" Type="Boolean" />
+                    <asp:Parameter Name="Original_paymentID" Type="Int32" />
+                    <asp:Parameter Name="Original_custID" Type="Int32" />
+                    <asp:Parameter Name="Original_empID" Type="Int32" />
+                </UpdateParameters>
             </asp:ObjectDataSource>
-            <asp:ObjectDataSource ID="odsPayment" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.paymentTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
+            <asp:ObjectDataSource ID="odsPayment" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.CustomerDataSetTableAdapters.PaymentTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
                 <DeleteParameters>
                     <asp:Parameter Name="Original_id" Type="Int32" />
                     <asp:Parameter Name="Original_payType" Type="String" />
@@ -151,27 +182,7 @@
                     <asp:Parameter Name="Original_payType" Type="String" />
                 </UpdateParameters>
             </asp:ObjectDataSource>
-            <asp:ObjectDataSource ID="odsEmployee" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.employeeTableAdapter" UpdateMethod="Update">
-                <DeleteParameters>
-                    <asp:Parameter Name="Original_id" Type="Int32" />
-                    <asp:Parameter Name="Original_empFirst" Type="String" />
-                    <asp:Parameter Name="Original_empLast" Type="String" />
-                    <asp:Parameter Name="Original_posID" Type="Int32" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="empFirst" Type="String" />
-                    <asp:Parameter Name="empLast" Type="String" />
-                    <asp:Parameter Name="posID" Type="Int32" />
-                </InsertParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="empFirst" Type="String" />
-                    <asp:Parameter Name="empLast" Type="String" />
-                    <asp:Parameter Name="posID" Type="Int32" />
-                    <asp:Parameter Name="Original_id" Type="Int32" />
-                    <asp:Parameter Name="Original_empFirst" Type="String" />
-                    <asp:Parameter Name="Original_empLast" Type="String" />
-                    <asp:Parameter Name="Original_posID" Type="Int32" />
-                </UpdateParameters>
+            <asp:ObjectDataSource ID="odsEmployee" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.CustomerDataSetTableAdapters.EmployeeTableAdapter">
             </asp:ObjectDataSource>
             <br />
         </div>
