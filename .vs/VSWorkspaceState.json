@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\EmmasInterface",
+    "\\EmmasInterface\\EmmasInterface"
   ],
-  "SelectedNode": "\\EmmasInterface.sln",
+  "SelectedNode": "\\EmmasInterface\\EmmasInterface\\Sales.aspx.cs",
   "PreviewInSolutionExplorer": false
 }

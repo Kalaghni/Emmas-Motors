@@ -16,7 +16,6 @@
         <div>
             Order Number:
             <asp:TextBox ID="txtOrderNumber" runat="server" Height="20px" Width="128px" OnTextChanged="txtOrderNumber_TextChanged"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtOrderNumber" ErrorMessage="*"></asp:RequiredFieldValidator>
             <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtOrderNumber" ErrorMessage="!" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
             <br />
             Employee:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

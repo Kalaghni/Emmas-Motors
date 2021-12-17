@@ -541,3 +541,24 @@ C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterf
 C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.dll
 C:\Users\thesa\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.pdb
 D:\Niagara College\Year 2\prog1210-RAD\EmmasInterface\EmmasInterface\obj\Debug\EmmasInterface.csprojAssemblyReference.cache
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\EntityFramework.dll
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\EntityFramework.SqlServer.dll
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.Owin.dll
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.Owin.Security.dll
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Owin.dll
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\EntityFramework.xml
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\EntityFramework.SqlServer.xml
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.Owin.xml
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.Owin.Security.xml
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\joshi\OneDrive\Documents\GitHub\prog1210-RAD\EmmasInterface\EmmasInterface\bin\Microsoft.Owin.Security.OAuth.xml

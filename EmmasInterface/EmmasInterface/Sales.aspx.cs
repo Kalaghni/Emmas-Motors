@@ -11,6 +11,40 @@ using System.Web.UI.WebControls;
 
 namespace EmmasInterface
 {
+
+    public class SaleObject
+    {
+        public SaleObject(string ordNum, bool paid, int pay, int cust, int emp)
+        {
+            OrderNum = ordNum;
+            OrderDate = DateTime.Today;
+            OrderPaid = paid;
+            PaymentID = pay;
+            CustomerID = cust;
+            EmployeeID = emp;
+        }
+        public string OrderNum { get; set; }
+        public DateTime OrderDate { get; set; }
+        public bool OrderPaid { get; set; }
+        public int PaymentID { get; set; }
+        public int CustomerID { get; set; }
+        public int EmployeeID { get; set; }
+
+    }
+
+    public class SaleProduct
+    {
+        public SaleProduct(int id, int qty, decimal price)
+        {
+            ID = id;
+            Quantity = qty;
+            Price = price;
+        }
+        public int ID { get; set; }
+        public int Quantity { get; set; }
+        public decimal Price { get; set; }
+    }
+
     /* Zachary Babin
      * Last Edit: 12/16/2021
      * Design by Zachary Babin and Zac Gordon
@@ -22,10 +56,15 @@ namespace EmmasInterface
 
         static customerLookupTableAdapter taCustomer = new customerLookupTableAdapter();
         static SaleItemTableAdapter taSaleItem = new SaleItemTableAdapter();
+        static ReceiptCreateTableAdapter taReceiptCreate = new ReceiptCreateTableAdapter();
+        static OrderCreateTableAdapter taOrderCreate = new OrderCreateTableAdapter();
+        static InventoryCreateTableAdapter taInventoryCreate = new InventoryCreateTableAdapter();
 
-        private decimal subTotal;
-        private decimal tax;
-        private decimal total;
+        private static decimal subTotal;
+        private static decimal tax;
+        private static decimal total;
+
+        private static List<SaleProduct> products = new List<SaleProduct>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -73,33 +112,6 @@ namespace EmmasInterface
             lbCustNames.Items.Add(txtSearchCust.Text);
         }
 
-        protected void FillCustomerInformation(object sender, EventArgs e)
-        {
-            
-            try
-            {
-                var fullName = lbCustNames.SelectedValue;
-                var firstName = Regex.Replace(fullName.Split()[0], @"[^0-9a-zA-Z\ ]+", "");
-                var customer = taCustomer.GetData(firstName);
-                txtFirstName.Text = fullName;
-                txtLastName.Text = firstName;
-                if (customer.Count > 0)
-                {
-                    txtFirstName.Text = customer[0].custFirst;
-                    txtLastName.Text = customer[0].custLast;
-                    txtPhoneNumber.Text = customer[0].custPhone;
-                }
-                else
-                {
-                    //txtFirstName.Text = "Error Loading Customer";
-                }
-            }
-            catch
-            {
-
-            }
-        }
-
         protected void AddToOrder(object sender, EventArgs e)
         {
             var ItemToAdd = taSaleItem.GetData(ddlProducts.SelectedIndex + 1);
@@ -108,9 +120,12 @@ namespace EmmasInterface
             {
                 if (ItemToAdd.Count >= 0 && ItemToAdd[0].invQuantity >= Convert.ToInt32(txtProdQuant.Text))
                 {
-                    lbProductOrder.Items.Add(ItemToAdd[0].prodName + ", " + ItemToAdd[0].prodBrand + " Price: $" + ItemToAdd[0].invPrice * Convert.ToInt32(txtProdQuant.Text) + " Quantity: " + txtProdQuant.Text);
-                    subTotal += ItemToAdd[0].invPrice * Convert.ToDecimal(txtProdQuant.Text);
-                    tax += ItemToAdd[0].invPrice * 0.13M;
+                    decimal tempPrice = ItemToAdd[0].invPrice * Convert.ToInt32(txtProdQuant.Text);
+                    lbProductOrder.Items.Add(ItemToAdd[0].prodName + ", " + ItemToAdd[0].prodBrand + " Price: $" + tempPrice + " Quantity: " + txtProdQuant.Text);
+                    products.Add(new SaleProduct(ItemToAdd[0].id, Convert.ToInt32(txtProdQuant.Text), ItemToAdd[0].invPrice));
+
+                    subTotal += tempPrice;
+                    tax += subTotal * 0.13M;
                     total += subTotal + tax;
 
                     lblSubtotal.Text = subTotal.ToString();
@@ -130,13 +145,33 @@ namespace EmmasInterface
 
         protected void CompleteSale(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtFirstName.Text + txtLastName.Text + txtPhoneNumber.Text + txtEmpFName.Text + txtEmpLName))
+            if (products.Any())
             {
+                string OrderNumber = (taReceiptCreate.GetData().Count + 1).ToString();
 
+                SaleObject sale = new SaleObject(OrderNumber, chkPaid.Checked, Convert.ToInt32(ddlPayment.SelectedValue), Convert.ToInt32(lbCustNames.SelectedValue), Convert.ToInt32(ddlEmployee.SelectedValue));
+                taReceiptCreate.Insert(sale.OrderNum, sale.OrderDate, sale.OrderPaid, sale.PaymentID, sale.CustomerID, sale.EmployeeID);
+
+                for (int a = 0; a < products.Count; a++)
+                {
+                    taOrderCreate.Insert(products[a].Price, products[a].Quantity, null, txtNote.Text, products[a].ID, Convert.ToInt32(taReceiptCreate.GetData().Where(r => r.ordNumber == OrderNumber).First().id));
+                }
+
+                txtSearchCust.Text = "";
+                txtProdQuant.Text = "";
+                txtNote.Text = "";
+                lbCustNames.Items.Clear();
+                lbProductOrder.Items.Clear();
+                lblSubtotal.Text = "";
+                lblTax.Text = "";
+                lblTotal.Text = "";
+                lblResult.Text = $"Successfully added Sale with Order Number {OrderNumber}";
+
+                products.Clear();
             }
             else
             {
-                string text = "All fields must be entered to complete purchase";
+                string text = "Must add products to sale";
                 //MessageBox.Show(text);
             }
         }
