@@ -15,7 +15,7 @@
         <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="SearchCust" />
         <br />
         <br />
-        <asp:ListBox ID="lbCustNames" runat="server" AutoPostBack="True" DataSourceID="odsCustomerLookup" DataTextField="custFullname" DataValueField="id" Height="111px"></asp:ListBox>
+        <asp:ListBox ID="lbCustNames" runat="server" AutoPostBack="True" DataSourceID="odsCustomerLookup" DataTextField="custFullname" DataValueField="custFullname" Height="111px" OnSelectedIndexChanged="FillCustomerInformation"></asp:ListBox>
         <br />
         <br />
         <asp:Label ID="lbCustomerInfo" runat="server" Text="Customer Information"></asp:Label>    
@@ -47,20 +47,15 @@
         <br />
         <div id="Products">
             
-            <asp:DropDownList ID="ddlProducts" runat="server" Height="16px" Width="128px" AutoPostBack="True" DataSourceID="odsProducts" DataTextField="prodName" DataValueField="id">
+            <asp:DropDownList ID="ddlProducts" runat="server" Height="16px" Width="128px" AutoPostBack="True" DataSourceID="odsProducts" DataTextField="prodListing" DataValueField="id">
             </asp:DropDownList>
             <asp:TextBox ID="txtProdQuant"  type="number" runat="server" Width="28px"></asp:TextBox>
             
+            <asp:Button ID="btnItemAdd" runat="server" OnClick="AddToOrder" Text="Add Product" />
             <br />
-            <asp:GridView ID="gvOrderProducts" runat="server" DataSourceID="odsProducts" AutoGenerateColumns="False">
-                <Columns>
-                    <asp:BoundField DataField="orlPrice" HeaderText="orlPrice" SortExpression="orlPrice" />
-                    <asp:BoundField DataField="orlQuantity" HeaderText="orlQuantity" SortExpression="orlQuantity" />
-                    <asp:BoundField DataField="orlNote" HeaderText="orlNote" SortExpression="orlNote" />
-                    <asp:BoundField DataField="prodName" HeaderText="prodName" SortExpression="prodName" />
-                    <asp:BoundField DataField="prodBrand" HeaderText="prodBrand" SortExpression="prodBrand" />
-                </Columns>
-            </asp:GridView>
+            <asp:ListBox ID="lbProductOrder" runat="server"></asp:ListBox>
+            
+            <br />
             <br />
             Subtotal : <asp:Label ID="lblSubtotal" runat="server" Text="$0.00"></asp:Label>
             <br />
@@ -69,6 +64,7 @@
             Total : <asp:Label ID="lblTotal" runat="server" Text="$0.00"></asp:Label>
             <br />
             <br />
+            <asp:Button ID="btnCompleteSale" runat="server" OnClick="CompleteSale" Text="Complete Sale" />
             <br />
             <asp:Panel ID="pntest" runat="server" Height="241px">
                 <asp:Label ID="Label3" runat="server" Text="Naviagte to another page:"></asp:Label>
@@ -109,10 +105,7 @@
         </div>
         
         
-        <asp:ObjectDataSource ID="odsProducts" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.OrderProductsTableAdapter">
-            <SelectParameters>
-                <asp:ControlParameter ControlID="ddlProducts" DefaultValue="0" Name="Param1" PropertyName="SelectedValue" Type="Int32" />
-            </SelectParameters>
+        <asp:ObjectDataSource ID="odsProducts" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmasLibrary.EmmasDataSetTableAdapters.productLookupTableAdapter">
         </asp:ObjectDataSource>
         
         

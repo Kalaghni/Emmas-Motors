@@ -30,7 +30,6 @@ D:\Niagara College\Year 2\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\Emmas
 D:\Niagara College\Year 2\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\EmmasLibrary.dll.config
 D:\Niagara College\Year 2\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\EmmasLibrary.dll
 D:\Niagara College\Year 2\prog1210-RAD\EmmasLibrary\EmmasLibrary\bin\Debug\EmmasLibrary.pdb
-D:\Niagara College\Year 2\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.csprojAssemblyReference.cache
 D:\Niagara College\Year 2\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.csproj.CoreCompileInputs.cache
 D:\Niagara College\Year 2\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.dll
 D:\Niagara College\Year 2\prog1210-RAD\EmmasLibrary\EmmasLibrary\obj\Debug\EmmasLibrary.pdb

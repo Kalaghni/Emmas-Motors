@@ -195,13 +195,22 @@ namespace EmmasInterface
         protected global::System.Web.UI.WebControls.TextBox txtProdQuant;
 
         /// <summary>
-        /// gvOrderProducts control.
+        /// btnItemAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvOrderProducts;
+        protected global::System.Web.UI.WebControls.Button btnItemAdd;
+
+        /// <summary>
+        /// lbProductOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbProductOrder;
 
         /// <summary>
         /// lblSubtotal control.
@@ -229,6 +238,15 @@ namespace EmmasInterface
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotal;
+
+        /// <summary>
+        /// btnCompleteSale control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCompleteSale;
 
         /// <summary>
         /// pntest control.
